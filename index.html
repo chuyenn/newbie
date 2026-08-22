@@ -1,15 +1,31 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="theme-color" content="#0b1020">
-<meta name="description" content="NEWBIE CHILL - Minecraft Survival Server">
+<meta charset="UTF-8">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+>
+
+<meta
+  name="theme-color"
+  content="#0b1020"
+>
+
+<meta
+  name="description"
+  content="NEWBIE CHILL - Minecraft Survival Server"
+>
 
 <title>NEWBIE CHILL | Minecraft Server</title>
 
 <style>
+
+/* =====================================================
+   RESET
+===================================================== */
 
 *{
   box-sizing:border-box;
@@ -32,7 +48,9 @@ body{
 
   color:#f5f7ff;
   background:#070b16;
+
   line-height:1.6;
+
   overflow-x:hidden;
 }
 
@@ -46,16 +64,19 @@ input{
   font:inherit;
 }
 
-/* =========================
+
+/* =====================================================
    BACKGROUND
-========================= */
+===================================================== */
 
 .bg{
   position:fixed;
   inset:0;
+
   z-index:-2;
 
   background:
+
     radial-gradient(
       circle at 15% 20%,
       rgba(89,92,255,.20),
@@ -80,10 +101,13 @@ input{
 .grid{
   position:fixed;
   inset:0;
+
   z-index:-1;
+
   opacity:.14;
 
   background-image:
+
     linear-gradient(
       rgba(255,255,255,.08) 1px,
       transparent 1px
@@ -105,13 +129,15 @@ input{
     );
 }
 
-/* =========================
+
+/* =====================================================
    HEADER
-========================= */
+===================================================== */
 
 header{
   position:sticky;
   top:0;
+
   z-index:20;
 
   backdrop-filter:blur(16px);
@@ -125,18 +151,25 @@ header{
 
 .nav{
   max-width:1120px;
+
   margin:auto;
+
   padding:15px 20px;
 
   display:flex;
+
   align-items:center;
+
   justify-content:space-between;
+
   gap:20px;
 }
 
 .logo{
   font-weight:900;
+
   letter-spacing:.08em;
+
   font-size:1.1rem;
 }
 
@@ -146,8 +179,11 @@ header{
 
 nav{
   display:flex;
+
   gap:22px;
+
   color:#b9c0d4;
+
   font-size:.94rem;
 }
 
@@ -159,30 +195,40 @@ nav a:hover{
   color:#fff;
 }
 
-/* =========================
+
+/* =====================================================
    HERO
-========================= */
+===================================================== */
 
 .hero{
   max-width:1120px;
+
   margin:auto;
+
   padding:92px 20px 70px;
+
   text-align:center;
 }
 
 .badge{
   display:inline-flex;
+
   align-items:center;
+
   gap:8px;
 
   padding:7px 13px;
 
-  border:1px solid rgba(124,131,255,.3);
+  border:
+    1px solid rgba(124,131,255,.3);
+
   border-radius:999px;
 
-  background:rgba(124,131,255,.09);
+  background:
+    rgba(124,131,255,.09);
 
   color:#cbd0ff;
+
   font-size:.85rem;
 }
 
@@ -194,7 +240,8 @@ nav a:hover{
 
   background:#777;
 
-  box-shadow:0 0 12px #777;
+  box-shadow:
+    0 0 12px #777;
 
   transition:.3s;
 }
@@ -217,6 +264,7 @@ h1{
     );
 
   line-height:.95;
+
   letter-spacing:-.055em;
 }
 
@@ -230,6 +278,7 @@ h1{
     );
 
   -webkit-background-clip:text;
+
   background-clip:text;
 
   color:transparent;
@@ -237,36 +286,49 @@ h1{
 
 .hero p{
   max-width:680px;
+
   margin:0 auto;
 
   color:#aeb6ca;
+
   font-size:1.08rem;
 }
 
-/* =========================
+
+/* =====================================================
    BUTTONS
-========================= */
+===================================================== */
 
 .actions{
   display:flex;
+
   justify-content:center;
+
   gap:12px;
+
   flex-wrap:wrap;
+
   margin:28px 0;
 }
 
 .btn{
   display:inline-flex;
+
   align-items:center;
+
   justify-content:center;
+
   gap:8px;
 
-  border:1px solid rgba(255,255,255,.1);
+  border:
+    1px solid rgba(255,255,255,.1);
+
   border-radius:12px;
 
   padding:12px 18px;
 
   cursor:pointer;
+
   transition:.2s;
 
   font-weight:750;
@@ -278,16 +340,20 @@ h1{
 
 .primary{
   background:#fff;
+
   color:#090d18;
 }
 
 .secondary{
-  background:rgba(255,255,255,.06);
+  background:
+    rgba(255,255,255,.06);
+
   color:#fff;
 }
 
 .discord-btn{
   background:#5865f2;
+
   color:white;
 }
 
@@ -300,20 +366,24 @@ h1{
     );
 
   color:white;
+
   border:0;
 }
 
-/* =========================
+
+/* =====================================================
    SERVER CARD
-========================= */
+===================================================== */
 
 .server-card{
   max-width:760px;
+
   margin:30px auto 0;
 
   padding:20px;
 
-  background:rgba(255,255,255,.055);
+  background:
+    rgba(255,255,255,.055);
 
   border:
     1px solid rgba(255,255,255,.1);
@@ -326,33 +396,43 @@ h1{
 
 .server-row{
   display:flex;
+
   align-items:center;
+
   justify-content:space-between;
 
   gap:15px;
+
   flex-wrap:wrap;
 }
 
 .server-label{
   color:#8e98ae;
+
   font-size:.78rem;
 
   text-transform:uppercase;
+
   letter-spacing:.12em;
 }
 
 .ip{
   font-size:1.35rem;
+
   font-weight:850;
+
   word-break:break-all;
 }
 
 .status{
   display:flex;
+
   align-items:center;
+
   gap:8px;
 
   color:#aeb6ca;
+
   font-size:.92rem;
 }
 
@@ -362,32 +442,39 @@ h1{
   border-radius:10px;
 
   background:#171d31;
+
   color:#fff;
 
   border:
     1px solid rgba(255,255,255,.1);
 
   cursor:pointer;
+
   transition:.2s;
 }
 
 .copy:hover{
   background:#202943;
+
   transform:translateY(-1px);
 }
 
-/* =========================
+
+/* =====================================================
    SECTIONS
-========================= */
+===================================================== */
 
 section{
   max-width:1120px;
+
   margin:auto;
+
   padding:65px 20px;
 }
 
 .section-head{
   text-align:center;
+
   margin-bottom:28px;
 }
 
@@ -397,16 +484,21 @@ section{
 
 .section-head p{
   color:#8f98ad;
+
   margin-top:5px;
 }
 
-/* =========================
+
+/* =====================================================
    FEATURE CARDS
-========================= */
+===================================================== */
 
 .cards{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+
+  grid-template-columns:
+    repeat(3,1fr);
+
   gap:16px;
 }
 
@@ -415,7 +507,8 @@ section{
 
   border-radius:18px;
 
-  background:rgba(255,255,255,.045);
+  background:
+    rgba(255,255,255,.045);
 
   border:
     1px solid rgba(255,255,255,.08);
@@ -432,6 +525,7 @@ section{
 
 .icon{
   font-size:1.8rem;
+
   margin-bottom:12px;
 }
 
@@ -443,16 +537,20 @@ section{
   color:#9ca6bb;
 }
 
-/* =========================
+
+/* =====================================================
    DISCORD
-========================= */
+===================================================== */
 
 .discord{
   display:flex;
+
   align-items:center;
+
   justify-content:space-between;
 
   gap:25px;
+
   padding:28px;
 
   border-radius:20px;
@@ -470,12 +568,14 @@ section{
 
 .discord p{
   color:#aab2c5;
+
   margin-top:5px;
 }
 
-/* =========================
-   SHOP RANK
-========================= */
+
+/* =====================================================
+   RANK SHOP
+===================================================== */
 
 .ranks{
   display:grid;
@@ -490,7 +590,9 @@ section{
   min-height:250px;
 
   display:flex;
+
   flex-direction:column;
+
   justify-content:space-between;
 
   padding:24px;
@@ -524,6 +626,7 @@ section{
   margin-top:8px;
 
   font-size:1.4rem;
+
   font-weight:850;
 
   color:#65e6c6;
@@ -531,7 +634,9 @@ section{
 
 .rank-info{
   margin-top:10px;
+
   color:#9ca6bb;
+
   font-size:.92rem;
 }
 
@@ -587,17 +692,20 @@ section{
   font-size:.9rem;
 }
 
-/* =========================
-   PAYMENT MODAL
-========================= */
+
+/* =====================================================
+   MODAL
+===================================================== */
 
 .modal{
   position:fixed;
+
   inset:0;
 
   display:none;
 
   align-items:center;
+
   justify-content:center;
 
   padding:20px;
@@ -616,9 +724,11 @@ section{
 
 .modal-box{
   width:100%;
-  max-width:520px;
 
-  max-height:90vh;
+  max-width:540px;
+
+  max-height:92vh;
+
   overflow-y:auto;
 
   padding:25px;
@@ -638,6 +748,7 @@ section{
   display:flex;
 
   align-items:center;
+
   justify-content:space-between;
 
   gap:15px;
@@ -651,6 +762,7 @@ section{
 
 .close{
   width:38px;
+
   height:38px;
 
   border:0;
@@ -665,6 +777,11 @@ section{
 
   font-size:1.2rem;
 }
+
+
+/* =====================================================
+   SELECTED RANK
+===================================================== */
 
 .selected-rank{
   padding:15px;
@@ -686,8 +803,14 @@ section{
 
 .selected-price{
   color:#65e6c6;
+
   font-weight:800;
 }
+
+
+/* =====================================================
+   FORM
+===================================================== */
 
 .form-group{
   margin-bottom:16px;
@@ -727,6 +850,11 @@ section{
     0 0 0 3px rgba(124,131,255,.1);
 }
 
+
+/* =====================================================
+   PAYMENT
+===================================================== */
+
 .payment{
   margin-top:18px;
 
@@ -743,7 +871,40 @@ section{
 
 .payment-title{
   font-weight:850;
+
   margin-bottom:12px;
+}
+
+.qr-wrapper{
+  text-align:center;
+
+  margin:15px 0;
+}
+
+.qr-wrapper img{
+  width:280px;
+
+  max-width:100%;
+
+  min-height:100px;
+
+  object-fit:contain;
+
+  border-radius:15px;
+
+  background:#fff;
+
+  padding:8px;
+}
+
+.qr-note{
+  text-align:center;
+
+  color:#8e98ae;
+
+  font-size:.82rem;
+
+  margin-top:8px;
 }
 
 .bank-row{
@@ -769,7 +930,9 @@ section{
 
 .bank-value{
   text-align:right;
+
   font-weight:750;
+
   word-break:break-word;
 }
 
@@ -791,6 +954,11 @@ section{
 
   cursor:pointer;
 }
+
+
+/* =====================================================
+   TRANSFER CONTENT
+===================================================== */
 
 .transfer-content{
   margin-top:15px;
@@ -836,6 +1004,11 @@ section{
   cursor:pointer;
 }
 
+
+/* =====================================================
+   CONFIRM BUTTON
+===================================================== */
+
 .confirm-btn{
   width:100%;
 
@@ -859,7 +1032,66 @@ section{
   font-weight:900;
 
   cursor:pointer;
+
+  transition:.2s;
 }
+
+.confirm-btn:hover{
+  transform:translateY(-2px);
+
+  box-shadow:
+    0 8px 25px rgba(32,185,107,.25);
+}
+
+
+/* =====================================================
+   CONTACT AFTER PAYMENT
+===================================================== */
+
+.contact-after-payment{
+  display:none;
+
+  margin-top:15px;
+
+  padding:15px;
+
+  border-radius:13px;
+
+  background:
+    rgba(88,101,242,.10);
+
+  border:
+    1px solid rgba(88,101,242,.25);
+
+  text-align:center;
+}
+
+.contact-after-payment.show{
+  display:block;
+}
+
+.contact-after-payment p{
+  color:#9ca6bb;
+
+  margin:7px 0 12px;
+
+  font-size:.9rem;
+}
+
+.contact-btn{
+  width:100%;
+
+  background:#5865f2;
+
+  color:#fff;
+
+  border:0;
+}
+
+
+/* =====================================================
+   WARNING
+===================================================== */
 
 .warning{
   margin-top:12px;
@@ -871,9 +1103,10 @@ section{
   text-align:center;
 }
 
-/* =========================
+
+/* =====================================================
    FOOTER
-========================= */
+===================================================== */
 
 footer{
   padding:35px 20px;
@@ -886,14 +1119,16 @@ footer{
     1px solid rgba(255,255,255,.07);
 }
 
-/* =========================
+
+/* =====================================================
    TOAST
-========================= */
+===================================================== */
 
 .toast{
   position:fixed;
 
   left:50%;
+
   bottom:25px;
 
   transform:
@@ -904,6 +1139,7 @@ footer{
   pointer-events:none;
 
   background:#fff;
+
   color:#0b1020;
 
   padding:10px 15px;
@@ -924,9 +1160,10 @@ footer{
     translate(-50%,0);
 }
 
-/* =========================
+
+/* =====================================================
    MOBILE
-========================= */
+===================================================== */
 
 @media(max-width:760px){
 
@@ -945,11 +1182,13 @@ footer{
 
   .discord{
     flex-direction:column;
+
     align-items:flex-start;
   }
 
   .server-row{
     align-items:flex-start;
+
     flex-direction:column;
   }
 
@@ -972,6 +1211,7 @@ footer{
 
   .bank-row{
     flex-direction:column;
+
     gap:2px;
   }
 
@@ -1000,1109 +1240,1549 @@ footer{
 </style>
 </head>
 
+
 <body>
 
 <div class="bg"></div>
+
 <div class="grid"></div>
 
-<!-- =========================
+
+<!-- =====================================================
      HEADER
-========================= -->
+===================================================== -->
 
 <header>
 
-<div class="nav">
+  <div class="nav">
 
-<a class="logo" href="#">
-NEWBIE <span>CHILL</span>
-</a>
+    <a class="logo" href="#">
+      NEWBIE <span>CHILL</span>
+    </a>
 
-<nav>
+    <nav>
 
-<a href="#server">
-Server
-</a>
+      <a href="#server">
+        Server
+      </a>
 
-<a href="#discord">
-Discord
-</a>
+      <a href="#discord">
+        Discord
+      </a>
 
-<a href="#ranks">
-Shop Rank
-</a>
+      <a href="#ranks">
+        Shop Rank
+      </a>
 
-</nav>
+    </nav>
 
-</div>
+  </div>
 
 </header>
 
+
 <main>
 
-<!-- =========================
+
+<!-- =====================================================
      HERO
-========================= -->
+===================================================== -->
 
 <section class="hero" id="server">
 
-<div class="badge">
+  <div class="badge">
 
-<span id="heroDot" class="dot"></span>
+    <span id="heroDot" class="dot"></span>
 
-<span id="heroStatus">
-Đang kiểm tra server...
-</span>
+    <span id="heroStatus">
+      Đang kiểm tra server...
+    </span>
 
-</div>
+  </div>
 
-<h1>
-<span class="gradient">
-NEWBIE CHILL
-</span>
-</h1>
 
-<p>
-Một server Minecraft Survival
-thân thiện, chill cùng bạn bè
-và xây dựng hành trình
-của riêng bạn.
-</p>
+  <h1>
 
-<div class="actions">
+    <span class="gradient">
+      NEWBIE CHILL
+    </span>
 
-<button
-class="btn primary"
-onclick="copyIP()">
-📋 Copy IP Server
-</button>
+  </h1>
 
-<a
-class="btn discord-btn"
-href="https://discord.gg/qPt5bVySJ"
-target="_blank"
-rel="noopener">
-💬 Tham gia Discord
-</a>
 
-<a
-class="btn shop-btn"
-href="#ranks">
-🛒 Shop Rank
-</a>
+  <p>
 
-</div>
+    Một server Minecraft Survival
+    thân thiện, chill cùng bạn bè
+    và xây dựng hành trình
+    của riêng bạn.
 
-<div class="server-card">
+  </p>
 
-<div class="server-row">
 
-<div>
+  <div class="actions">
 
-<div class="server-label">
-Minecraft Server IP
-</div>
+    <button
+      class="btn primary"
+      onclick="copyIP()"
+    >
+      📋 Copy IP Server
+    </button>
 
-<div class="ip">
-newbie.asia:25530
-</div>
 
-</div>
+    <a
+      class="btn discord-btn"
+      href="https://discord.gg/qPt5bVySJ"
+      target="_blank"
+      rel="noopener"
+    >
+      💬 Tham gia Discord
+    </a>
 
-<button
-class="copy"
-onclick="copyIP()">
-📋 Copy IP
-</button>
 
-</div>
+    <a
+      class="btn shop-btn"
+      href="#ranks"
+    >
+      🛒 Shop Rank
+    </a>
 
-<div
-style="
-height:1px;
-background:rgba(255,255,255,.07);
-margin:17px 0
-">
-</div>
+  </div>
 
-<div class="server-row">
 
-<div class="status">
+  <div class="server-card">
 
-<span
-id="statusDot"
-class="dot">
-</span>
+    <div class="server-row">
 
-<span id="statusText">
-Đang kiểm tra...
-</span>
+      <div>
 
-</div>
+        <div class="server-label">
+          Minecraft Server IP
+        </div>
 
-<div class="status">
+        <div class="ip">
+          newbie.asia:25530
+        </div>
 
-👥
+      </div>
 
-<span id="players">
---
-</span>
 
-người chơi
+      <button
+        class="copy"
+        onclick="copyIP()"
+      >
+        📋 Copy IP
+      </button>
 
-</div>
+    </div>
 
-<div class="status">
 
-🕒
+    <div
+      style="
+        height:1px;
+        background:rgba(255,255,255,.07);
+        margin:17px 0
+      "
+    ></div>
 
-<span id="latency">
---
-</span>
 
-</div>
+    <div class="server-row">
 
-</div>
+      <div class="status">
 
-</div>
+        <span
+          id="statusDot"
+          class="dot"
+        ></span>
+
+        <span id="statusText">
+          Đang kiểm tra...
+        </span>
+
+      </div>
+
+
+      <div class="status">
+
+        👥
+
+        <span id="players">
+          --
+        </span>
+
+        người chơi
+
+      </div>
+
+
+      <div class="status">
+
+        🕒
+
+        <span id="latency">
+          --
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
 
 </section>
 
-<!-- =========================
+
+<!-- =====================================================
      FEATURES
-========================= -->
+===================================================== -->
 
 <section>
 
-<div class="section-head">
+  <div class="section-head">
 
-<h2>
-🌟 NEWBIE CHILL
-</h2>
+    <h2>
+      🌟 NEWBIE CHILL
+    </h2>
 
-<p>
-Chill • Survival • Cộng đồng
-</p>
+    <p>
+      Chill • Survival • Cộng đồng
+    </p>
 
-</div>
+  </div>
 
-<div class="cards">
 
-<div class="card">
+  <div class="cards">
 
-<div class="icon">
-🌳
-</div>
 
-<h3>
-Survival
-</h3>
+    <div class="card">
 
-<p>
-Trải nghiệm sinh tồn,
-khám phá và xây dựng
-thế giới của riêng bạn.
-</p>
+      <div class="icon">
+        🌳
+      </div>
 
-</div>
+      <h3>
+        Survival
+      </h3>
 
-<div class="card">
+      <p>
+        Trải nghiệm sinh tồn,
+        khám phá và xây dựng
+        thế giới của riêng bạn.
+      </p>
 
-<div class="icon">
-🤝
-</div>
+    </div>
 
-<h3>
-Cộng đồng
-</h3>
 
-<p>
-Chơi cùng bạn bè,
-lập team và tham gia
-các hoạt động của server.
-</p>
+    <div class="card">
 
-</div>
+      <div class="icon">
+        🤝
+      </div>
 
-<div class="card">
+      <h3>
+        Cộng đồng
+      </h3>
 
-<div class="icon">
-✨
-</div>
+      <p>
+        Chơi cùng bạn bè,
+        lập team và tham gia
+        các hoạt động của server.
+      </p>
 
-<h3>
-Chill
-</h3>
+    </div>
 
-<p>
-Một không gian chơi
-Minecraft nhẹ nhàng,
-vui vẻ và thân thiện.
-</p>
 
-</div>
+    <div class="card">
 
-</div>
+      <div class="icon">
+        ✨
+      </div>
+
+      <h3>
+        Chill
+      </h3>
+
+      <p>
+        Một không gian chơi
+        Minecraft nhẹ nhàng,
+        vui vẻ và thân thiện.
+      </p>
+
+    </div>
+
+
+  </div>
 
 </section>
 
-<!-- =========================
+
+<!-- =====================================================
      DISCORD
-========================= -->
+===================================================== -->
 
 <section id="discord">
 
-<div class="discord">
+  <div class="discord">
 
-<div>
+    <div>
 
-<h2>
-💬 Discord Community
-</h2>
+      <h2>
+        💬 Discord Community
+      </h2>
 
-<p>
-Tham gia Discord để nhận
-thông báo, trò chuyện và
-cập nhật server.
-</p>
+      <p>
+        Tham gia Discord để nhận
+        thông báo, trò chuyện và
+        cập nhật server.
+      </p>
 
-</div>
+    </div>
 
-<a
-class="btn primary"
-href="https://discord.gg/qPt5bVySJ"
-target="_blank"
-rel="noopener">
-Tham gia Discord →
-</a>
 
-</div>
+    <a
+      class="btn primary"
+      href="https://discord.gg/qPt5bVySJ"
+      target="_blank"
+      rel="noopener"
+    >
+      Tham gia Discord →
+    </a>
+
+  </div>
 
 </section>
 
-<!-- =========================
-     SHOP RANK
-========================= -->
+
+<!-- =====================================================
+     SHOP
+===================================================== -->
 
 <section id="ranks">
 
-<div class="section-head">
+  <div class="section-head">
 
-<h2>
-👑 Shop Rank
-</h2>
+    <h2>
+      👑 Shop Rank
+    </h2>
 
-<p>
-Chọn rank bạn muốn nâng cấp
-</p>
+    <p>
+      Chọn rank bạn muốn nâng cấp
+    </p>
 
-</div>
+  </div>
 
-<div class="ranks">
 
-<!-- CHILL -->
+  <div class="ranks">
 
-<div class="rank">
 
-<div>
+    <!-- CHILL -->
 
-<h3>
-🌸 Chill
-</h3>
+    <div class="rank">
 
-<p class="price">
-15 VNĐ
-</p>
+      <div>
 
-<p class="rank-info">
-🏠 3 Home<br>
-↩️ /back<br>
-✨ Kế thừa toàn bộ quyền Newbie
-</p>
+        <h3>
+          🌸 Chill
+        </h3>
 
-</div>
+        <p class="price">
+          15 VNĐ
+        </p>
 
-<button
-class="buy-btn"
-onclick="openShop('Chill',15)">
-🛒 Mua Rank Chill
-</button>
+        <p class="rank-info">
 
-</div>
+          🏠 3 Home
+          <br>
 
-<!-- DREAMER -->
+          ↩️ /back
+          <br>
 
-<div class="rank">
+          ✨ Kế thừa toàn bộ quyền Newbie
 
-<div>
+        </p>
 
-<h3>
-💜 Dreamer
-</h3>
+      </div>
 
-<p class="price">
-30 VNĐ
-</p>
 
-<p class="rank-info">
-🏠 5 Home<br>
-🎮 /gamemode survival<br>
-👁️ /gamemode spectator
-</p>
+      <button
+        class="buy-btn"
+        onclick="openShop('Chill',15)"
+      >
+        🛒 Mua Rank Chill
+      </button>
 
-</div>
+    </div>
 
-<button
-class="buy-btn"
-onclick="openShop('Dreamer',30)">
-🛒 Mua Rank Dreamer
-</button>
 
-</div>
+    <!-- DREAMER -->
 
-<!-- MASTER -->
+    <div class="rank">
 
-<div class="rank">
+      <div>
 
-<div>
+        <h3>
+          💜 Dreamer
+        </h3>
 
-<h3>
-💎 Master
-</h3>
+        <p class="price">
+          30 VNĐ
+        </p>
 
-<p class="price">
-45 VNĐ
-</p>
+        <p class="rank-info">
 
-<p class="rank-info">
-🏠 10 Home<br>
-📍 /tp<br>
-🪽 /fly
-</p>
+          🏠 5 Home
+          <br>
 
-</div>
+          🎮 /gamemode survival
+          <br>
 
-<button
-class="buy-btn"
-onclick="openShop('Master',45)">
-🛒 Mua Rank Master
-</button>
+          👁️ /gamemode spectator
 
-</div>
+        </p>
 
-</div>
+      </div>
 
-<div class="notice">
 
-💡 Khi mua rank, hãy nhập chính xác
-<strong>Tên Minecraft</strong> của bạn.
-Nội dung chuyển khoản sẽ có dạng:
-<strong>RANK TênMinecraft</strong>.
+      <button
+        class="buy-btn"
+        onclick="openShop('Dreamer',30)"
+      >
+        🛒 Mua Rank Dreamer
+      </button>
 
-</div>
+    </div>
+
+
+    <!-- MASTER -->
+
+    <div class="rank">
+
+      <div>
+
+        <h3>
+          💎 Master
+        </h3>
+
+        <p class="price">
+          45 VNĐ
+        </p>
+
+        <p class="rank-info">
+
+          🏠 10 Home
+          <br>
+
+          📍 /tp
+          <br>
+
+          🪽 /fly
+
+        </p>
+
+      </div>
+
+
+      <button
+        class="buy-btn"
+        onclick="openShop('Master',45)"
+      >
+        🛒 Mua Rank Master
+      </button>
+
+    </div>
+
+
+  </div>
+
+
+  <div class="notice">
+
+    💡 Khi mua rank, hãy nhập chính xác
+    <strong>Tên Minecraft</strong> của bạn.
+
+    Nội dung chuyển khoản:
+
+    <strong>
+      RANK TênMinecraft
+    </strong>
+
+  </div>
 
 </section>
 
 </main>
 
-<!-- =========================
+
+<!-- =====================================================
      SHOP MODAL
-========================= -->
+===================================================== -->
 
 <div
-id="shopModal"
-class="modal"
-onclick="closeOutside(event)">
+  id="shopModal"
+  class="modal"
+  onclick="closeOutside(event)"
+>
 
-<div class="modal-box">
+  <div class="modal-box">
 
-<div class="modal-head">
 
-<h2>
-🛒 Mua Rank
-</h2>
+    <!-- HEADER -->
 
-<button
-class="close"
-onclick="closeShop()">
-✕
-</button>
+    <div class="modal-head">
+
+      <h2>
+        🛒 Mua Rank
+      </h2>
+
+      <button
+        class="close"
+        onclick="closeShop()"
+      >
+        ✕
+      </button>
+
+    </div>
+
+
+    <!-- RANK -->
+
+    <div class="selected-rank">
+
+      <div>
+        Rank đã chọn:
+      </div>
+
+      <strong id="selectedRank">
+        --
+      </strong>
+
+      <br>
+
+      <span class="selected-price">
+
+        💰
+
+        <span id="selectedPrice">
+          --
+        </span>
+
+        VNĐ
+
+      </span>
+
+    </div>
+
+
+    <!-- TÊN MINECRAFT -->
+
+    <div class="form-group">
+
+      <label for="minecraftName">
+
+        🎮 Tên Minecraft *
+
+      </label>
+
+
+      <input
+        id="minecraftName"
+        type="text"
+        maxlength="16"
+        autocomplete="off"
+        placeholder="Nhập tên Minecraft của bạn..."
+        oninput="updateOrder()"
+      >
+
+    </div>
+
+
+    <!-- QR -->
+
+    <div class="payment">
+
+      <div class="payment-title">
+
+        📱 Quét QR để chuyển khoản
+
+      </div>
+
+
+      <div class="qr-wrapper">
+
+        <img
+          id="qrImage"
+          src=""
+          alt="QR chuyển khoản"
+        >
+
+      </div>
+
+
+      <div class="qr-note">
+
+        QR tự cập nhật theo
+        <strong>Rank + số tiền + tên Minecraft</strong>.
+
+      </div>
+
+    </div>
+
+
+    <!-- BANK -->
+
+    <div class="payment">
+
+      <div class="payment-title">
+
+        🏦 Thông tin chuyển khoản
+
+      </div>
+
+
+      <div class="bank-row">
+
+        <span class="bank-label">
+          Ngân hàng
+        </span>
+
+        <span class="bank-value">
+          Vietcombank (VCB)
+        </span>
+
+      </div>
+
+
+      <div class="bank-row">
+
+        <span class="bank-label">
+          Chủ tài khoản
+        </span>
+
+        <span class="bank-value">
+          BAN VAN CHUYEN
+        </span>
+
+      </div>
+
+
+      <div class="bank-row">
+
+        <span class="bank-label">
+          Số tài khoản
+        </span>
+
+        <span class="bank-value">
+          1068595131
+        </span>
+
+      </div>
+
+
+      <button
+        class="copy-bank"
+        onclick="copyBankNumber()"
+      >
+        📋 Copy số tài khoản
+      </button>
+
+    </div>
+
+
+    <!-- NỘI DUNG -->
+
+    <div class="transfer-content">
+
+      <div>
+        📝 Nội dung chuyển khoản:
+      </div>
+
+
+      <div
+        id="transferCode"
+        class="transfer-code"
+      >
+        RANK TênMinecraft
+      </div>
+
+
+      <button
+        class="copy-content"
+        onclick="copyTransferContent()"
+      >
+        📋 Copy nội dung
+      </button>
+
+    </div>
+
+
+    <!-- ĐÃ CHUYỂN -->
+
+    <button
+      id="confirmButton"
+      class="confirm-btn"
+      onclick="confirmPurchase()"
+    >
+
+      ✅ Tôi đã chuyển khoản
+
+    </button>
+
+
+    <!-- LIÊN HỆ ADMIN -->
+
+    <div
+      id="contactAfterPayment"
+      class="contact-after-payment"
+    >
+
+      <strong>
+        📩 Đã ghi nhận yêu cầu!
+      </strong>
+
+
+      <p>
+
+        Hãy nhấn nút bên dưới để
+        liên hệ Admin và gửi ảnh giao dịch
+        nếu cần.
+
+      </p>
+
+
+      <a
+        href="https://vanchuyen.bio.link/"
+        target="_blank"
+        rel="noopener"
+        class="btn contact-btn"
+      >
+
+        📩 Liên hệ Admin
+
+      </a>
+
+    </div>
+
+
+    <!-- WARNING -->
+
+    <div class="warning">
+
+      ⚠️ Hãy chuyển khoản đúng số tiền
+      và đúng nội dung.
+
+      <br>
+
+      Admin sẽ kiểm tra giao dịch
+      và cấp rank thủ công.
+
+    </div>
+
+
+  </div>
 
 </div>
 
-<div class="selected-rank">
 
-<div>
-Rank đã chọn:
-</div>
-
-<strong id="selectedRank">
---
-</strong>
-
-<br>
-
-<span class="selected-price">
-💰 <span id="selectedPrice">--</span> VNĐ
-</span>
-
-</div>
-
-<!-- TÊN MINECRAFT -->
-
-<div class="form-group">
-
-<label for="minecraftName">
-🎮 Tên Minecraft *
-</label>
-
-<input
-id="minecraftName"
-type="text"
-maxlength="16"
-autocomplete="off"
-placeholder="Nhập tên Minecraft của bạn..."
-oninput="updateTransferContent()">
-
-</div>
-
-<!-- NGÂN HÀNG -->
-
-<div class="payment">
-
-<div class="payment-title">
-🏦 Thông tin chuyển khoản
-</div>
-
-<div class="bank-row">
-
-<span class="bank-label">
-Ngân hàng
-</span>
-
-<span class="bank-value">
-Vietcombank (VCB)
-</span>
-
-</div>
-
-<div class="bank-row">
-
-<span class="bank-label">
-Chủ tài khoản
-</span>
-
-<span class="bank-value">
-BAN VAN CHUYEN
-</span>
-
-</div>
-
-<div class="bank-row">
-
-<span class="bank-label">
-Số tài khoản
-</span>
-
-<span
-class="bank-value"
-id="bankNumber">
-1068595131
-</span>
-
-</div>
-
-<button
-class="copy-bank"
-onclick="copyBankNumber()">
-📋 Copy số tài khoản
-</button>
-
-</div>
-
-<!-- NỘI DUNG CHUYỂN KHOẢN -->
-
-<div class="transfer-content">
-
-<div>
-📝 Nội dung chuyển khoản:
-</div>
-
-<div
-id="transferCode"
-class="transfer-code">
-RANK TênMinecraft
-</div>
-
-<button
-class="copy-content"
-onclick="copyTransferContent()">
-📋 Copy nội dung chuyển khoản
-</button>
-
-</div>
-
-<button
-class="confirm-btn"
-onclick="confirmPurchase()">
-✅ Tôi đã kiểm tra thông tin
-</button>
-
-<div class="warning">
-
-⚠️ Sau khi chuyển khoản, admin sẽ kiểm tra
-và cấp rank cho đúng <strong>Tên Minecraft</strong>.
-Vui lòng nhập tên chính xác.
-
-</div>
-
-</div>
-
-</div>
-
-<!-- =========================
+<!-- =====================================================
      FOOTER
-========================= -->
+===================================================== -->
 
 <footer>
 
-©
-<span id="year"></span>
+  ©
 
-<strong>
-NEWBIE CHILL
-</strong>
+  <span id="year"></span>
 
-• Minecraft Survival Server
+  <strong>
+    NEWBIE CHILL
+  </strong>
 
-<br>
+  • Minecraft Survival Server
 
-🌐 newbie.asia:25530
+  <br>
+
+  🌐 newbie.asia:25530
 
 </footer>
 
-<!-- TOAST -->
+
+<!-- =====================================================
+     TOAST
+===================================================== -->
 
 <div
-id="toast"
-class="toast">
-✅ Đã copy!
+  id="toast"
+  class="toast"
+>
+  ✅ Đã copy!
 </div>
 
-<!-- =========================
+
+<!-- =====================================================
      JAVASCRIPT
-========================= -->
+===================================================== -->
 
 <script>
 
-/* =========================
+
+/* =====================================================
    SERVER CONFIG
-========================= */
+===================================================== */
 
 const SERVER_IP =
-"newbie.asia:25530";
+  "newbie.asia:25530";
+
 
 const STATUS_API =
-"https://api.mcsrvstat.us/3/" +
-encodeURIComponent(SERVER_IP);
+  "https://api.mcsrvstat.us/3/" +
+  encodeURIComponent(SERVER_IP);
 
 
-/* =========================
-   CHECK SERVER
-========================= */
+/* =====================================================
+   BANK CONFIG
+===================================================== */
 
-async function checkServer(){
-
-const dot =
-document.getElementById(
-"statusDot"
-);
-
-const heroDot =
-document.getElementById(
-"heroDot"
-);
-
-const text =
-document.getElementById(
-"statusText"
-);
-
-const heroStatus =
-document.getElementById(
-"heroStatus"
-);
-
-const players =
-document.getElementById(
-"players"
-);
-
-const latency =
-document.getElementById(
-"latency"
-);
-
-try{
-
-const start =
-performance.now();
-
-const response =
-await fetch(
-STATUS_API,
-{
-cache:"no-store"
-}
-);
-
-if(!response.ok){
-
-throw new Error(
-"API Error"
-);
-
-}
-
-const data =
-await response.json();
-
-const ms =
-Math.round(
-performance.now() -
-start
-);
-
-/* ONLINE */
-
-if(data.online){
-
-dot.classList.add(
-"online"
-);
-
-heroDot.classList.add(
-"online"
-);
-
-text.textContent =
-"Server đang Online";
-
-heroStatus.textContent =
-"Server đang Online";
-
-players.textContent =
-`${data.players?.online ?? 0}/${data.players?.max ?? "?"}`;
-
-latency.textContent =
-ms + " ms";
-
-}
-
-/* OFFLINE */
-
-else{
-
-dot.classList.remove(
-"online"
-);
-
-heroDot.classList.remove(
-"online"
-);
-
-text.textContent =
-"Server đang Offline";
-
-heroStatus.textContent =
-"Server đang Offline";
-
-players.textContent =
-"0";
-
-latency.textContent =
-"--";
-
-}
-
-}
-
-catch(error){
-
-dot.classList.remove(
-"online"
-);
-
-heroDot.classList.remove(
-"online"
-);
-
-text.textContent =
-"Không thể kiểm tra";
-
-heroStatus.textContent =
-"Không thể kiểm tra server";
-
-players.textContent =
-"--";
-
-latency.textContent =
-"--";
-
-}
-
-}
+const BANK_CODE =
+  "VCB";
 
 
-/* =========================
-   COPY IP
-========================= */
-
-async function copyIP(){
-
-try{
-
-await navigator.clipboard.writeText(
-SERVER_IP
-);
-
-}
-
-catch(error){
-
-const textarea =
-document.createElement(
-"textarea"
-);
-
-textarea.value =
-SERVER_IP;
-
-document.body.appendChild(
-textarea
-);
-
-textarea.select();
-
-document.execCommand(
-"copy"
-);
-
-textarea.remove();
-
-}
-
-showToast(
-"✅ Đã copy IP!"
-);
-
-}
+const BANK_NUMBER =
+  "1068595131";
 
 
-/* =========================
-   SHOP
-========================= */
+const ACCOUNT_NAME =
+  "BAN VAN CHUYEN";
+
+
+/* =====================================================
+   SHOP STATE
+===================================================== */
 
 let currentRank = "";
+
 let currentPrice = 0;
 
 
-function openShop(rank,price){
+/* =====================================================
+   CHECK SERVER
+===================================================== */
 
-currentRank =
-rank;
+async function checkServer(){
 
-currentPrice =
-price;
+  const dot =
+    document.getElementById(
+      "statusDot"
+    );
 
-document.getElementById(
-"selectedRank"
-).textContent =
-rank;
+  const heroDot =
+    document.getElementById(
+      "heroDot"
+    );
 
-document.getElementById(
-"selectedPrice"
-).textContent =
-price;
+  const text =
+    document.getElementById(
+      "statusText"
+    );
 
-document.getElementById(
-"minecraftName"
-).value =
-"";
+  const heroStatus =
+    document.getElementById(
+      "heroStatus"
+    );
 
-document.getElementById(
-"transferCode"
-).textContent =
-"RANK TênMinecraft";
+  const players =
+    document.getElementById(
+      "players"
+    );
 
-document.getElementById(
-"shopModal"
-).classList.add(
-"show"
-);
+  const latency =
+    document.getElementById(
+      "latency"
+    );
 
-setTimeout(
-()=>{
-document.getElementById(
-"minecraftName"
-).focus();
-},
-100
-);
+
+  try{
+
+    const start =
+      performance.now();
+
+
+    const response =
+      await fetch(
+        STATUS_API,
+        {
+          cache:"no-store"
+        }
+      );
+
+
+    if(!response.ok){
+
+      throw new Error(
+        "API Error"
+      );
+
+    }
+
+
+    const data =
+      await response.json();
+
+
+    const ms =
+      Math.round(
+        performance.now() -
+        start
+      );
+
+
+    if(data.online){
+
+      dot.classList.add(
+        "online"
+      );
+
+      heroDot.classList.add(
+        "online"
+      );
+
+
+      text.textContent =
+        "Server đang Online";
+
+
+      heroStatus.textContent =
+        "Server đang Online";
+
+
+      players.textContent =
+        `${data.players?.online ?? 0}/${data.players?.max ?? "?"}`;
+
+
+      latency.textContent =
+        ms + " ms";
+
+    }
+
+    else{
+
+      dot.classList.remove(
+        "online"
+      );
+
+      heroDot.classList.remove(
+        "online"
+      );
+
+
+      text.textContent =
+        "Server đang Offline";
+
+
+      heroStatus.textContent =
+        "Server đang Offline";
+
+
+      players.textContent =
+        "0";
+
+
+      latency.textContent =
+        "--";
+
+    }
+
+  }
+
+  catch(error){
+
+    dot.classList.remove(
+      "online"
+    );
+
+    heroDot.classList.remove(
+      "online"
+    );
+
+
+    text.textContent =
+      "Không thể kiểm tra";
+
+
+    heroStatus.textContent =
+      "Không thể kiểm tra server";
+
+
+    players.textContent =
+      "--";
+
+
+    latency.textContent =
+      "--";
+
+  }
 
 }
 
+
+/* =====================================================
+   COPY IP
+===================================================== */
+
+async function copyIP(){
+
+  try{
+
+    await navigator.clipboard.writeText(
+      SERVER_IP
+    );
+
+  }
+
+  catch(error){
+
+    const textarea =
+      document.createElement(
+        "textarea"
+      );
+
+
+    textarea.value =
+      SERVER_IP;
+
+
+    document.body.appendChild(
+      textarea
+    );
+
+
+    textarea.select();
+
+
+    document.execCommand(
+      "copy"
+    );
+
+
+    textarea.remove();
+
+  }
+
+
+  showToast(
+    "✅ Đã copy IP!"
+  );
+
+}
+
+
+/* =====================================================
+   OPEN SHOP
+===================================================== */
+
+function openShop(rank, price){
+
+  currentRank =
+    rank;
+
+
+  currentPrice =
+    price;
+
+
+  document.getElementById(
+    "selectedRank"
+  ).textContent =
+    rank;
+
+
+  document.getElementById(
+    "selectedPrice"
+  ).textContent =
+    formatMoney(price);
+
+
+  document.getElementById(
+    "minecraftName"
+  ).value =
+    "";
+
+
+  document.getElementById(
+    "transferCode"
+  ).textContent =
+    "RANK TênMinecraft";
+
+
+  document.getElementById(
+    "contactAfterPayment"
+  ).classList.remove(
+    "show"
+  );
+
+
+  document.getElementById(
+    "qrImage"
+  ).src =
+    createQR(
+      price,
+      "TênMinecraft"
+    );
+
+
+  document.getElementById(
+    "shopModal"
+  ).classList.add(
+    "show"
+  );
+
+
+  setTimeout(
+    function(){
+
+      document.getElementById(
+        "minecraftName"
+      ).focus();
+
+    },
+    100
+  );
+
+}
+
+
+/* =====================================================
+   CLOSE SHOP
+===================================================== */
 
 function closeShop(){
 
-document.getElementById(
-"shopModal"
-).classList.remove(
-"show"
-);
+  document.getElementById(
+    "shopModal"
+  ).classList.remove(
+    "show"
+  );
 
 }
 
+
+/* =====================================================
+   CLOSE OUTSIDE
+===================================================== */
 
 function closeOutside(event){
 
-if(
-event.target.id ===
-"shopModal"
-){
+  if(
+    event.target.id ===
+    "shopModal"
+  ){
 
-closeShop();
+    closeShop();
 
-}
-
-}
-
-
-/* =========================
-   TRANSFER CONTENT
-========================= */
-
-function updateTransferContent(){
-
-const input =
-document.getElementById(
-"minecraftName"
-);
-
-const name =
-input.value.trim();
-
-const transfer =
-document.getElementById(
-"transferCode"
-);
-
-if(name){
-
-transfer.textContent =
-"RANK " + name;
-
-}
-
-else{
-
-transfer.textContent =
-"RANK TênMinecraft";
-
-}
+  }
 
 }
 
 
-/* =========================
-   COPY BANK
-========================= */
+/* =====================================================
+   FORMAT MONEY
+===================================================== */
+
+function formatMoney(number){
+
+  return Number(
+    number
+  ).toLocaleString(
+    "vi-VN"
+  );
+
+}
+
+
+/* =====================================================
+   CREATE VIETQR
+===================================================== */
+
+function createQR(amount, minecraftName){
+
+  const content =
+    "RANK " +
+    minecraftName;
+
+
+  const qrUrl =
+    "https://img.vietqr.io/image/" +
+    BANK_CODE +
+    "-" +
+    BANK_NUMBER +
+    "-compact2.png" +
+    "?amount=" +
+    encodeURIComponent(amount) +
+    "&addInfo=" +
+    encodeURIComponent(content) +
+    "&accountName=" +
+    encodeURIComponent(ACCOUNT_NAME);
+
+
+  return qrUrl;
+
+}
+
+
+/* =====================================================
+   UPDATE ORDER
+===================================================== */
+
+function updateOrder(){
+
+  const input =
+    document.getElementById(
+      "minecraftName"
+    );
+
+
+  const name =
+    input.value.trim();
+
+
+  const transfer =
+    document.getElementById(
+      "transferCode"
+    );
+
+
+  const qr =
+    document.getElementById(
+      "qrImage"
+    );
+
+
+  if(name){
+
+    const content =
+      "RANK " +
+      name;
+
+
+    transfer.textContent =
+      content;
+
+
+    qr.src =
+      createQR(
+        currentPrice,
+        name
+      );
+
+  }
+
+  else{
+
+    transfer.textContent =
+      "RANK TênMinecraft";
+
+
+    qr.src =
+      createQR(
+        currentPrice,
+        "TênMinecraft"
+      );
+
+  }
+
+}
+
+
+/* =====================================================
+   COPY BANK NUMBER
+===================================================== */
 
 async function copyBankNumber(){
 
-try{
+  try{
 
-await navigator.clipboard.writeText(
-"1068595131"
-);
+    await navigator.clipboard.writeText(
+      BANK_NUMBER
+    );
 
-showToast(
-"✅ Đã copy STK!"
-);
+
+    showToast(
+      "✅ Đã copy STK!"
+    );
+
+  }
+
+  catch(error){
+
+    showToast(
+      "❌ Không thể copy!"
+    );
+
+  }
 
 }
 
-catch(error){
 
-showToast(
-"❌ Không thể copy!"
-);
-
-}
-
-}
-
-
-/* =========================
+/* =====================================================
    COPY TRANSFER CONTENT
-========================= */
+===================================================== */
 
 async function copyTransferContent(){
 
-const name =
-document.getElementById(
-"minecraftName"
-).value.trim();
+  const name =
+    document.getElementById(
+      "minecraftName"
+    ).value.trim();
 
-if(!name){
 
-showToast(
-"⚠️ Hãy nhập Tên Minecraft!"
-);
+  if(!name){
 
-document.getElementById(
-"minecraftName"
-).focus();
+    showToast(
+      "⚠️ Hãy nhập Tên Minecraft!"
+    );
 
-return;
+
+    document.getElementById(
+      "minecraftName"
+    ).focus();
+
+
+    return;
+
+  }
+
+
+  const content =
+    "RANK " +
+    name;
+
+
+  try{
+
+    await navigator.clipboard.writeText(
+      content
+    );
+
+
+    showToast(
+      "✅ Đã copy nội dung!"
+    );
+
+  }
+
+  catch(error){
+
+    showToast(
+      "❌ Không thể copy!"
+    );
+
+  }
 
 }
 
-const content =
-"RANK " + name;
 
-try{
-
-await navigator.clipboard.writeText(
-content
-);
-
-showToast(
-"✅ Đã copy nội dung!"
-);
-
-}
-
-catch(error){
-
-showToast(
-"❌ Không thể copy!"
-);
-
-}
-
-}
-
-
-/* =========================
-   CONFIRM
-========================= */
+/* =====================================================
+   CONFIRM PAYMENT
+===================================================== */
 
 function confirmPurchase(){
 
-const name =
-document.getElementById(
-"minecraftName"
-).value.trim();
+  const name =
+    document.getElementById(
+      "minecraftName"
+    ).value.trim();
 
-if(!name){
 
-showToast(
-"⚠️ Hãy nhập Tên Minecraft!"
-);
+  if(!name){
 
-document.getElementById(
-"minecraftName"
-).focus();
+    showToast(
+      "⚠️ Hãy nhập Tên Minecraft!"
+    );
 
-return;
+
+    document.getElementById(
+      "minecraftName"
+    ).focus();
+
+
+    return;
+
+  }
+
+
+  const content =
+    "RANK " +
+    name;
+
+
+  /*
+     Hiện khu vực liên hệ Admin
+  */
+
+  document.getElementById(
+    "contactAfterPayment"
+  ).classList.add(
+    "show"
+  );
+
+
+  /*
+     Đổi trạng thái nút
+  */
+
+  const button =
+    document.getElementById(
+      "confirmButton"
+    );
+
+
+  button.textContent =
+    "✅ Đã xác nhận chuyển khoản";
+
+
+  button.disabled =
+    true;
+
+
+  button.style.opacity =
+    ".65";
+
+
+  /*
+     Copy nội dung
+  */
+
+  try{
+
+    navigator.clipboard.writeText(
+      content
+    );
+
+  }
+
+  catch(error){}
+
+
+  showToast(
+    "✅ Đã ghi nhận!"
+  );
+
+
+  /*
+     Thông báo cho khách
+  */
+
+  setTimeout(
+    function(){
+
+      alert(
+        "Đã ghi nhận yêu cầu!\n\n" +
+
+        "Rank: " +
+        currentRank +
+
+        "\nGiá: " +
+        formatMoney(currentPrice) +
+        " VNĐ" +
+
+        "\nTên Minecraft: " +
+        name +
+
+        "\nNội dung: " +
+        content +
+
+        "\n\n" +
+
+        "Admin sẽ kiểm tra giao dịch " +
+        "và cấp rank thủ công."
+      );
+
+    },
+    150
+  );
 
 }
 
-const content =
-"RANK " + name;
 
-try{
-
-navigator.clipboard.writeText(
-content
-);
-
-}
-catch(error){}
-
-alert(
-"Thông tin mua rank:\n\n" +
-"Rank: " + currentRank + "\n" +
-"Giá: " + currentPrice + " VNĐ\n" +
-"Tên Minecraft: " + name + "\n\n" +
-"Ngân hàng: Vietcombank (VCB)\n" +
-"STK: 1068595131\n" +
-"Chủ TK: BAN VAN CHUYEN\n" +
-"Nội dung: " + content +
-"\n\n" +
-"Vui lòng chuyển khoản đúng thông tin. " +
-"Admin sẽ kiểm tra và cấp rank sau khi xác nhận."
-);
-
-}
-
-
-/* =========================
+/* =====================================================
    TOAST
-========================= */
+===================================================== */
 
 function showToast(message){
 
-const toast =
-document.getElementById(
-"toast"
-);
+  const toast =
+    document.getElementById(
+      "toast"
+    );
 
-toast.textContent =
-message;
 
-toast.classList.add(
-"show"
-);
+  toast.textContent =
+    message;
 
-setTimeout(
-()=>{
 
-toast.classList.remove(
-"show"
-);
+  toast.classList.add(
+    "show"
+  );
 
-},
-1800
-);
+
+  setTimeout(
+    function(){
+
+      toast.classList.remove(
+        "show"
+      );
+
+    },
+    1800
+  );
 
 }
 
 
-/* =========================
+/* =====================================================
    YEAR
-========================= */
+===================================================== */
 
 document.getElementById(
-"year"
+  "year"
 ).textContent =
-new Date().getFullYear();
+  new Date().getFullYear();
 
 
-/* =========================
+/* =====================================================
    START
-========================= */
+===================================================== */
 
 checkServer();
 
 
-/* =========================
-   UPDATE EVERY 30 SECONDS
-========================= */
+/* =====================================================
+   UPDATE SERVER EVERY 30 SEC
+===================================================== */
 
 setInterval(
-checkServer,
-30000
+  checkServer,
+  30000
+);
+
+
+/* =====================================================
+   ESC CLOSE MODAL
+===================================================== */
+
+document.addEventListener(
+  "keydown",
+  function(event){
+
+    if(
+      event.key ===
+      "Escape"
+    ){
+
+      closeShop();
+
+    }
+
+  }
 );
 
 </script>
