@@ -1,1587 +1,2111 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="theme-color" content="#0b1020">
+<meta name="description" content="NEWBIE CHILL - Minecraft Survival Server">
+
+<title>NEWBIE CHILL | Minecraft Server</title>
+
+<style>
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  color:#f5f7ff;
+  background:#070b16;
+  line-height:1.6;
+  overflow-x:hidden;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+button,
+input{
+  font:inherit;
+}
+
+/* =========================
+   BACKGROUND
+========================= */
+
+.bg{
+  position:fixed;
+  inset:0;
+  z-index:-2;
+
+  background:
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(89,92,255,.20),
+      transparent 28%
+    ),
+
+    radial-gradient(
+      circle at 85% 15%,
+      rgba(0,220,180,.13),
+      transparent 25%
+    ),
+
+    radial-gradient(
+      circle at 50% 90%,
+      rgba(255,190,70,.08),
+      transparent 30%
+    ),
+
+    #070b16;
+}
+
+.grid{
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  opacity:.14;
+
+  background-image:
+    linear-gradient(
+      rgba(255,255,255,.08) 1px,
+      transparent 1px
+    ),
+
+    linear-gradient(
+      90deg,
+      rgba(255,255,255,.08) 1px,
+      transparent 1px
+    );
+
+  background-size:42px 42px;
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      black,
+      transparent 85%
+    );
+}
 
-  <meta name="theme-color" content="#0b1020">
-  <meta name="description" content="NEWBIE CHILL - Minecraft Survival Server">
-
-  <title>NEWBIE CHILL | Minecraft Server</title>
-
-  <style>
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+/* =========================
+   HEADER
+========================= */
 
-    html {
-      scroll-behavior: smooth;
-    }
+header{
+  position:sticky;
+  top:0;
+  z-index:20;
 
-    body {
-      font-family:
-        Inter,
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        sans-serif;
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
 
-      color: #f5f7ff;
-      background: #070b16;
+  background:rgba(7,11,22,.72);
+
+  border-bottom:
+    1px solid rgba(255,255,255,.08);
+}
+
+.nav{
+  max-width:1120px;
+  margin:auto;
+  padding:15px 20px;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.logo{
+  font-weight:900;
+  letter-spacing:.08em;
+  font-size:1.1rem;
+}
+
+.logo span{
+  color:#7c83ff;
+}
+
+nav{
+  display:flex;
+  gap:22px;
+  color:#b9c0d4;
+  font-size:.94rem;
+}
+
+nav a{
+  transition:.2s;
+}
+
+nav a:hover{
+  color:#fff;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+  max-width:1120px;
+  margin:auto;
+  padding:92px 20px 70px;
+  text-align:center;
+}
+
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+
+  padding:7px 13px;
+
+  border:1px solid rgba(124,131,255,.3);
+  border-radius:999px;
+
+  background:rgba(124,131,255,.09);
+
+  color:#cbd0ff;
+  font-size:.85rem;
+}
+
+.dot{
+  width:8px;
+  height:8px;
+
+  border-radius:50%;
+
+  background:#777;
+
+  box-shadow:0 0 12px #777;
+
+  transition:.3s;
+}
+
+.dot.online{
+  background:#45e58a;
+
+  box-shadow:
+    0 0 14px #45e58a;
+}
+
+h1{
+  margin:20px 0 12px;
+
+  font-size:
+    clamp(
+      3rem,
+      10vw,
+      6.7rem
+    );
+
+  line-height:.95;
+  letter-spacing:-.055em;
+}
+
+.gradient{
+  background:
+    linear-gradient(
+      100deg,
+      #fff 10%,
+      #a9aeff 48%,
+      #65e6c6 90%
+    );
+
+  -webkit-background-clip:text;
+  background-clip:text;
+
+  color:transparent;
+}
+
+.hero p{
+  max-width:680px;
+  margin:0 auto;
+
+  color:#aeb6ca;
+  font-size:1.08rem;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.actions{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
+  margin:28px 0;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:12px;
+
+  padding:12px 18px;
+
+  cursor:pointer;
+  transition:.2s;
+
+  font-weight:750;
+}
+
+.btn:hover{
+  transform:translateY(-2px);
+}
+
+.primary{
+  background:#fff;
+  color:#090d18;
+}
+
+.secondary{
+  background:rgba(255,255,255,.06);
+  color:#fff;
+}
+
+.discord-btn{
+  background:#5865f2;
+  color:white;
+}
+
+.shop-btn{
+  background:
+    linear-gradient(
+      135deg,
+      #f59e0b,
+      #ef4444
+    );
+
+  color:white;
+  border:0;
+}
+
+/* =========================
+   SERVER CARD
+========================= */
+
+.server-card{
+  max-width:760px;
+  margin:30px auto 0;
+
+  padding:20px;
+
+  background:rgba(255,255,255,.055);
+
+  border:
+    1px solid rgba(255,255,255,.1);
+
+  border-radius:20px;
+
+  box-shadow:
+    0 20px 80px rgba(0,0,0,.28);
+}
+
+.server-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  gap:15px;
+  flex-wrap:wrap;
+}
+
+.server-label{
+  color:#8e98ae;
+  font-size:.78rem;
+
+  text-transform:uppercase;
+  letter-spacing:.12em;
+}
+
+.ip{
+  font-size:1.35rem;
+  font-weight:850;
+  word-break:break-all;
+}
+
+.status{
+  display:flex;
+  align-items:center;
+  gap:8px;
+
+  color:#aeb6ca;
+  font-size:.92rem;
+}
+
+.copy{
+  padding:9px 13px;
+
+  border-radius:10px;
+
+  background:#171d31;
+  color:#fff;
+
+  border:
+    1px solid rgba(255,255,255,.1);
+
+  cursor:pointer;
+  transition:.2s;
+}
+
+.copy:hover{
+  background:#202943;
+  transform:translateY(-1px);
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+section{
+  max-width:1120px;
+  margin:auto;
+  padding:65px 20px;
+}
+
+.section-head{
+  text-align:center;
+  margin-bottom:28px;
+}
+
+.section-head h2{
+  font-size:2rem;
+}
+
+.section-head p{
+  color:#8f98ad;
+  margin-top:5px;
+}
 
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
+/* =========================
+   FEATURE CARDS
+========================= */
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+.cards{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
 
-    button {
-      font: inherit;
-    }
+.card{
+  padding:24px;
 
+  border-radius:18px;
 
-    /* =========================
-       BACKGROUND
-    ========================= */
+  background:rgba(255,255,255,.045);
 
-    .bg {
-      position: fixed;
-      inset: 0;
+  border:
+    1px solid rgba(255,255,255,.08);
 
-      z-index: -2;
+  transition:.2s;
+}
 
-      background:
-        radial-gradient(
-          circle at 15% 20%,
-          rgba(89,92,255,.20),
-          transparent 28%
-        ),
+.card:hover{
+  transform:translateY(-4px);
 
-        radial-gradient(
-          circle at 85% 15%,
-          rgba(0,220,180,.13),
-          transparent 25%
-        ),
+  border-color:
+    rgba(124,131,255,.3);
+}
 
-        radial-gradient(
-          circle at 50% 90%,
-          rgba(255,190,70,.08),
-          transparent 30%
-        ),
+.icon{
+  font-size:1.8rem;
+  margin-bottom:12px;
+}
 
-        #070b16;
-    }
+.card h3{
+  margin-bottom:6px;
+}
 
+.card p{
+  color:#9ca6bb;
+}
 
-    .grid {
-      position: fixed;
-      inset: 0;
+/* =========================
+   DISCORD
+========================= */
 
-      z-index: -1;
+.discord{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
 
-      opacity: .14;
+  gap:25px;
+  padding:28px;
 
-      background-image:
-        linear-gradient(
-          rgba(255,255,255,.08) 1px,
-          transparent 1px
-        ),
+  border-radius:20px;
 
-        linear-gradient(
-          90deg,
-          rgba(255,255,255,.08) 1px,
-          transparent 1px
-        );
+  background:
+    linear-gradient(
+      135deg,
+      rgba(88,101,242,.2),
+      rgba(255,255,255,.04)
+    );
 
-      background-size: 42px 42px;
+  border:
+    1px solid rgba(120,130,255,.2);
+}
 
-      mask-image:
-        linear-gradient(
-          to bottom,
-          black,
-          transparent 85%
-        );
-    }
+.discord p{
+  color:#aab2c5;
+  margin-top:5px;
+}
 
+/* =========================
+   SHOP RANK
+========================= */
 
-    /* =========================
-       HEADER
-    ========================= */
+.ranks{
+  display:grid;
 
-    header {
-      position: sticky;
-      top: 0;
+  grid-template-columns:
+    repeat(3,1fr);
 
-      z-index: 20;
+  gap:16px;
+}
 
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+.rank{
+  min-height:250px;
 
-      background:
-        rgba(7,11,22,.72);
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
 
-      border-bottom:
-        1px solid rgba(255,255,255,.08);
-    }
+  padding:24px;
 
+  border:
+    1px solid rgba(255,255,255,.10);
 
-    .nav {
-      max-width: 1120px;
+  border-radius:18px;
 
-      margin: auto;
+  background:
+    rgba(255,255,255,.035);
 
-      padding: 15px 20px;
+  transition:.25s;
+}
 
-      display: flex;
+.rank:hover{
+  transform:translateY(-5px);
 
-      align-items: center;
+  border-color:
+    rgba(124,131,255,.4);
 
-      justify-content: space-between;
+  box-shadow:
+    0 15px 50px rgba(0,0,0,.2);
+}
 
-      gap: 20px;
-    }
+.rank h3{
+  font-size:1.35rem;
+}
 
+.rank .price{
+  margin-top:8px;
 
-    .logo {
-      font-weight: 900;
+  font-size:1.4rem;
+  font-weight:850;
 
-      letter-spacing: .08em;
+  color:#65e6c6;
+}
 
-      font-size: 1.1rem;
-    }
+.rank-info{
+  margin-top:10px;
+  color:#9ca6bb;
+  font-size:.92rem;
+}
 
+.buy-btn{
+  width:100%;
 
-    .logo span {
-      color: #7c83ff;
-    }
+  margin-top:20px;
 
+  border:0;
 
-    nav {
-      display: flex;
+  padding:12px;
 
-      gap: 22px;
+  border-radius:10px;
 
-      color: #b9c0d4;
+  background:
+    linear-gradient(
+      135deg,
+      #7c83ff,
+      #5865f2
+    );
 
-      font-size: .94rem;
-    }
+  color:#fff;
 
+  font-weight:800;
 
-    nav a {
-      transition: .2s;
-    }
+  cursor:pointer;
 
+  transition:.2s;
+}
 
-    nav a:hover {
-      color: #fff;
-    }
+.buy-btn:hover{
+  transform:translateY(-2px);
 
+  box-shadow:
+    0 8px 25px rgba(88,101,242,.3);
+}
 
-    /* =========================
-       HERO
-    ========================= */
+.notice{
+  margin-top:14px;
 
-    .hero {
-      max-width: 1120px;
+  padding:13px 15px;
 
-      margin: auto;
+  border-radius:12px;
 
-      padding:
-        92px 20px 70px;
+  background:
+    rgba(255,193,7,.06);
 
-      text-align: center;
-    }
+  border:
+    1px solid rgba(255,193,7,.15);
 
+  color:#c8c0a5;
 
-    .badge {
-      display: inline-flex;
+  font-size:.9rem;
+}
 
-      align-items: center;
+/* =========================
+   PAYMENT MODAL
+========================= */
 
-      gap: 8px;
+.modal{
+  position:fixed;
+  inset:0;
 
-      padding: 7px 13px;
+  display:none;
 
-      border:
-        1px solid rgba(124,131,255,.3);
+  align-items:center;
+  justify-content:center;
 
-      border-radius: 999px;
+  padding:20px;
 
-      background:
-        rgba(124,131,255,.09);
+  background:
+    rgba(0,0,0,.72);
 
-      color: #cbd0ff;
+  backdrop-filter:blur(8px);
 
-      font-size: .85rem;
-    }
+  z-index:100;
+}
 
+.modal.show{
+  display:flex;
+}
 
-    .dot {
-      width: 8px;
-      height: 8px;
+.modal-box{
+  width:100%;
+  max-width:520px;
 
-      border-radius: 50%;
+  max-height:90vh;
+  overflow-y:auto;
 
-      background: #777;
+  padding:25px;
 
-      box-shadow:
-        0 0 12px #777;
+  border-radius:22px;
 
-      transition: .3s;
-    }
+  background:#101628;
 
+  border:
+    1px solid rgba(255,255,255,.12);
 
-    .dot.online {
-      background: #45e58a;
+  box-shadow:
+    0 30px 100px rgba(0,0,0,.5);
+}
 
-      box-shadow:
-        0 0 14px #45e58a;
-    }
+.modal-head{
+  display:flex;
 
+  align-items:center;
+  justify-content:space-between;
 
-    h1 {
-      margin:
-        20px 0 12px;
+  gap:15px;
 
-      font-size:
-        clamp(
-          3rem,
-          10vw,
-          6.7rem
-        );
+  margin-bottom:20px;
+}
 
-      line-height: .95;
+.modal-head h2{
+  font-size:1.5rem;
+}
 
-      letter-spacing: -.055em;
-    }
+.close{
+  width:38px;
+  height:38px;
 
+  border:0;
 
-    .gradient {
-      background:
-        linear-gradient(
-          100deg,
-          #fff 10%,
-          #a9aeff 48%,
-          #65e6c6 90%
-        );
+  border-radius:10px;
 
-      -webkit-background-clip: text;
+  background:#1b2338;
 
-      background-clip: text;
+  color:#fff;
 
-      color: transparent;
-    }
+  cursor:pointer;
 
+  font-size:1.2rem;
+}
 
-    .hero p {
-      max-width: 680px;
+.selected-rank{
+  padding:15px;
 
-      margin: 0 auto;
+  border-radius:14px;
 
-      color: #aeb6ca;
+  background:
+    rgba(124,131,255,.08);
 
-      font-size: 1.08rem;
-    }
+  border:
+    1px solid rgba(124,131,255,.2);
 
+  margin-bottom:18px;
+}
 
-    /* =========================
-       BUTTONS
-    ========================= */
+.selected-rank strong{
+  font-size:1.15rem;
+}
 
-    .actions {
-      display: flex;
+.selected-price{
+  color:#65e6c6;
+  font-weight:800;
+}
 
-      justify-content: center;
+.form-group{
+  margin-bottom:16px;
+}
 
-      gap: 12px;
+.form-group label{
+  display:block;
 
-      flex-wrap: wrap;
+  margin-bottom:7px;
 
-      margin: 28px 0;
-    }
+  color:#cbd2e4;
 
+  font-weight:700;
+}
 
-    .btn {
-      display: inline-flex;
+.form-group input{
+  width:100%;
 
-      align-items: center;
+  padding:13px 14px;
 
-      justify-content: center;
+  border-radius:11px;
 
-      gap: 8px;
+  border:
+    1px solid rgba(255,255,255,.1);
 
-      border:
-        1px solid rgba(255,255,255,.1);
+  outline:none;
 
-      border-radius: 12px;
+  background:#080d1b;
 
-      padding: 12px 18px;
+  color:#fff;
+}
 
-      cursor: pointer;
+.form-group input:focus{
+  border-color:#7c83ff;
 
-      transition: .2s;
+  box-shadow:
+    0 0 0 3px rgba(124,131,255,.1);
+}
 
-      font-weight: 750;
-    }
+.payment{
+  margin-top:18px;
 
+  padding:18px;
 
-    .btn:hover {
-      transform: translateY(-2px);
-    }
+  border-radius:15px;
 
+  background:
+    rgba(255,255,255,.04);
 
-    .primary {
-      background: #fff;
+  border:
+    1px solid rgba(255,255,255,.09);
+}
 
-      color: #090d18;
-    }
+.payment-title{
+  font-weight:850;
+  margin-bottom:12px;
+}
 
+.bank-row{
+  display:flex;
 
-    .secondary {
-      background:
-        rgba(255,255,255,.06);
+  justify-content:space-between;
 
-      color: #fff;
-    }
+  gap:12px;
 
+  padding:8px 0;
 
-    .discord-btn {
-      background: #5865f2;
+  border-bottom:
+    1px solid rgba(255,255,255,.05);
+}
 
-      border-color:
-        rgba(255,255,255,.1);
+.bank-row:last-child{
+  border-bottom:0;
+}
 
-      color: white;
-    }
+.bank-label{
+  color:#8e98ae;
+}
 
+.bank-value{
+  text-align:right;
+  font-weight:750;
+  word-break:break-word;
+}
 
-    .shop-btn {
-      background:
-        linear-gradient(
-          135deg,
-          #f59e0b,
-          #ef4444
-        );
+.copy-bank{
+  margin-top:12px;
 
-      color: white;
+  width:100%;
 
-      border: 0;
-    }
+  padding:10px;
 
+  border-radius:10px;
 
-    /* =========================
-       SERVER CARD
-    ========================= */
+  border:
+    1px solid rgba(255,255,255,.1);
 
-    .server-card {
-      max-width: 760px;
+  background:#171d31;
 
-      margin: 30px auto 0;
+  color:#fff;
 
-      padding: 20px;
+  cursor:pointer;
+}
 
-      background:
-        rgba(255,255,255,.055);
+.transfer-content{
+  margin-top:15px;
 
-      border:
-        1px solid rgba(255,255,255,.1);
+  padding:14px;
 
-      border-radius: 20px;
+  border-radius:12px;
 
-      box-shadow:
-        0 20px 80px rgba(0,0,0,.28);
-    }
+  background:
+    rgba(101,230,198,.06);
 
+  border:
+    1px solid rgba(101,230,198,.15);
+}
 
-    .server-row {
-      display: flex;
+.transfer-code{
+  margin-top:7px;
 
-      align-items: center;
+  font-size:1.05rem;
 
-      justify-content: space-between;
+  font-weight:850;
 
-      gap: 15px;
+  color:#65e6c6;
 
-      flex-wrap: wrap;
-    }
+  word-break:break-word;
+}
 
+.copy-content{
+  margin-top:10px;
 
-    .server-label {
-      color: #8e98ae;
+  width:100%;
 
-      font-size: .78rem;
+  padding:9px;
 
-      text-transform: uppercase;
+  border:0;
 
-      letter-spacing: .12em;
-    }
+  border-radius:9px;
 
+  background:#243049;
 
-    .ip {
-      font-size: 1.35rem;
+  color:#fff;
 
-      font-weight: 850;
+  cursor:pointer;
+}
 
-      word-break: break-all;
-    }
+.confirm-btn{
+  width:100%;
 
+  margin-top:18px;
 
-    .status {
-      display: flex;
+  padding:13px;
 
-      align-items: center;
+  border:0;
 
-      gap: 8px;
+  border-radius:11px;
 
-      color: #aeb6ca;
+  background:
+    linear-gradient(
+      135deg,
+      #45e58a,
+      #20b96b
+    );
 
-      font-size: .92rem;
-    }
+  color:#06150d;
 
+  font-weight:900;
 
-    .copy {
-      padding: 9px 13px;
+  cursor:pointer;
+}
 
-      border-radius: 10px;
+.warning{
+  margin-top:12px;
 
-      background: #171d31;
+  color:#9ca6bb;
 
-      color: #fff;
+  font-size:.83rem;
 
-      border:
-        1px solid rgba(255,255,255,.1);
+  text-align:center;
+}
 
-      cursor: pointer;
+/* =========================
+   FOOTER
+========================= */
 
-      transition: .2s;
-    }
+footer{
+  padding:35px 20px;
 
+  text-align:center;
 
-    .copy:hover {
-      background: #202943;
+  color:#727c92;
 
-      transform: translateY(-1px);
-    }
+  border-top:
+    1px solid rgba(255,255,255,.07);
+}
 
+/* =========================
+   TOAST
+========================= */
 
-    /* =========================
-       SECTIONS
-    ========================= */
+.toast{
+  position:fixed;
 
-    section {
-      max-width: 1120px;
+  left:50%;
+  bottom:25px;
 
-      margin: auto;
+  transform:
+    translate(-50%,20px);
 
-      padding: 65px 20px;
-    }
+  opacity:0;
 
+  pointer-events:none;
 
-    .section-head {
-      text-align: center;
+  background:#fff;
+  color:#0b1020;
 
-      margin-bottom: 28px;
-    }
+  padding:10px 15px;
 
+  border-radius:10px;
 
-    .section-head h2 {
-      font-size: 2rem;
-    }
+  font-weight:750;
 
+  transition:.25s;
 
-    .section-head p {
-      color: #8f98ad;
+  z-index:200;
+}
 
-      margin-top: 5px;
-    }
+.toast.show{
+  opacity:1;
 
+  transform:
+    translate(-50%,0);
+}
 
-    /* =========================
-       FEATURE CARDS
-    ========================= */
+/* =========================
+   MOBILE
+========================= */
 
-    .cards {
-      display: grid;
+@media(max-width:760px){
 
-      grid-template-columns:
-        repeat(3,1fr);
+  nav{
+    display:none;
+  }
 
-      gap: 16px;
-    }
+  .hero{
+    padding-top:65px;
+  }
 
+  .cards,
+  .ranks{
+    grid-template-columns:1fr;
+  }
 
-    .card {
-      padding: 24px;
+  .discord{
+    flex-direction:column;
+    align-items:flex-start;
+  }
 
-      border-radius: 18px;
+  .server-row{
+    align-items:flex-start;
+    flex-direction:column;
+  }
 
-      background:
-        rgba(255,255,255,.045);
+  h1{
+    font-size:
+      clamp(
+        3rem,
+        18vw,
+        5rem
+      );
+  }
 
-      border:
-        1px solid rgba(255,255,255,.08);
+  .actions{
+    flex-direction:column;
+  }
 
-      transition: .2s;
-    }
+  .actions .btn{
+    width:100%;
+  }
 
+  .bank-row{
+    flex-direction:column;
+    gap:2px;
+  }
 
-    .card:hover {
-      transform: translateY(-4px);
+  .bank-value{
+    text-align:left;
+  }
 
-      border-color:
-        rgba(124,131,255,.3);
-    }
+}
 
+@media(max-width:420px){
 
-    .icon {
-      font-size: 1.8rem;
+  .ip{
+    font-size:1.1rem;
+  }
 
-      margin-bottom: 12px;
-    }
+  .server-card{
+    padding:16px;
+  }
 
+  .modal-box{
+    padding:18px;
+  }
 
-    .card h3 {
-      margin-bottom: 6px;
-    }
+}
 
-
-    .card p {
-      color: #9ca6bb;
-    }
-
-
-    /* =========================
-       DISCORD
-    ========================= */
-
-    .discord {
-      display: flex;
-
-      align-items: center;
-
-      justify-content: space-between;
-
-      gap: 25px;
-
-      padding: 28px;
-
-      border-radius: 20px;
-
-      background:
-        linear-gradient(
-          135deg,
-          rgba(88,101,242,.2),
-          rgba(255,255,255,.04)
-        );
-
-      border:
-        1px solid rgba(120,130,255,.2);
-    }
-
-
-    .discord p {
-      color: #aab2c5;
-
-      margin-top: 5px;
-    }
-
-
-    /* =========================
-       RANKS
-    ========================= */
-
-    .ranks {
-      display: grid;
-
-      grid-template-columns:
-        repeat(3,1fr);
-
-      gap: 16px;
-    }
-
-
-    .rank {
-      min-height: 190px;
-
-      display: flex;
-
-      flex-direction: column;
-
-      justify-content: space-between;
-
-      padding: 22px;
-
-      border:
-        1px dashed rgba(255,255,255,.15);
-
-      border-radius: 18px;
-
-      background:
-        rgba(255,255,255,.025);
-    }
-
-
-    .rank .price {
-      font-size: 1.25rem;
-
-      color: #8e98ae;
-    }
-
-
-    .rank button {
-      margin-top: 18px;
-
-      width: 100%;
-
-      border: 0;
-
-      padding: 11px;
-
-      border-radius: 10px;
-
-      background: #151b2c;
-
-      color: #778197;
-
-      cursor: not-allowed;
-    }
-
-
-    .notice {
-      margin-top: 14px;
-
-      padding: 13px 15px;
-
-      border-radius: 12px;
-
-      background:
-        rgba(255,193,7,.06);
-
-      border:
-        1px solid rgba(255,193,7,.15);
-
-      color: #c8c0a5;
-
-      font-size: .9rem;
-    }
-
-
-    /* =========================
-       FOOTER
-    ========================= */
-
-    footer {
-      padding: 35px 20px;
-
-      text-align: center;
-
-      color: #727c92;
-
-      border-top:
-        1px solid rgba(255,255,255,.07);
-    }
-
-
-    /* =========================
-       TOAST
-    ========================= */
-
-    .toast {
-      position: fixed;
-
-      left: 50%;
-
-      bottom: 25px;
-
-      transform:
-        translate(-50%,20px);
-
-      opacity: 0;
-
-      pointer-events: none;
-
-      background: #fff;
-
-      color: #0b1020;
-
-      padding: 10px 15px;
-
-      border-radius: 10px;
-
-      font-weight: 750;
-
-      transition: .25s;
-
-      z-index: 50;
-    }
-
-
-    .toast.show {
-      opacity: 1;
-
-      transform:
-        translate(-50%,0);
-    }
-
-
-    /* =========================
-       MOBILE
-    ========================= */
-
-    @media(max-width:760px) {
-
-      nav {
-        display: none;
-      }
-
-
-      .hero {
-        padding-top: 65px;
-      }
-
-
-      .cards,
-      .ranks {
-        grid-template-columns: 1fr;
-      }
-
-
-      .discord {
-        flex-direction: column;
-
-        align-items: flex-start;
-      }
-
-
-      .server-row {
-        align-items: flex-start;
-
-        flex-direction: column;
-      }
-
-
-      h1 {
-        font-size:
-          clamp(
-            3rem,
-            18vw,
-            5rem
-          );
-      }
-
-
-      .actions {
-        flex-direction: column;
-      }
-
-
-      .actions .btn {
-        width: 100%;
-      }
-
-    }
-
-
-    @media(max-width:420px) {
-
-      .ip {
-        font-size: 1.1rem;
-      }
-
-
-      .server-card {
-        padding: 16px;
-      }
-
-    }
-
-  </style>
+</style>
 </head>
-
 
 <body>
 
-  <div class="bg"></div>
-  <div class="grid"></div>
+<div class="bg"></div>
+<div class="grid"></div>
 
+<!-- =========================
+     HEADER
+========================= -->
 
-  <!-- =========================
-       HEADER
-  ========================= -->
+<header>
 
-  <header>
+<div class="nav">
 
-    <div class="nav">
+<a class="logo" href="#">
+NEWBIE <span>CHILL</span>
+</a>
 
-      <a
-        class="logo"
-        href="#"
-      >
-        NEWBIE
-        <span>CHILL</span>
-      </a>
+<nav>
 
+<a href="#server">
+Server
+</a>
 
-      <nav>
+<a href="#discord">
+Discord
+</a>
 
-        <a href="#server">
-          Server
-        </a>
+<a href="#ranks">
+Shop Rank
+</a>
 
-        <a href="#discord">
-          Discord
-        </a>
+</nav>
 
-        <a href="#ranks">
-          Shop Rank
-        </a>
+</div>
 
-      </nav>
+</header>
 
-    </div>
+<main>
 
-  </header>
+<!-- =========================
+     HERO
+========================= -->
 
+<section class="hero" id="server">
 
-  <main>
+<div class="badge">
 
+<span id="heroDot" class="dot"></span>
 
-    <!-- =========================
-         HERO
-    ========================= -->
+<span id="heroStatus">
+Đang kiểm tra server...
+</span>
 
-    <section
-      class="hero"
-      id="server"
-    >
+</div>
 
-      <div class="badge">
+<h1>
+<span class="gradient">
+NEWBIE CHILL
+</span>
+</h1>
 
-        <span
-          id="heroDot"
-          class="dot"
-        ></span>
+<p>
+Một server Minecraft Survival
+thân thiện, chill cùng bạn bè
+và xây dựng hành trình
+của riêng bạn.
+</p>
 
-        <span id="heroStatus">
-          Đang kiểm tra server...
-        </span>
+<div class="actions">
 
-      </div>
+<button
+class="btn primary"
+onclick="copyIP()">
+📋 Copy IP Server
+</button>
 
+<a
+class="btn discord-btn"
+href="https://discord.gg/qPt5bVySJ"
+target="_blank"
+rel="noopener">
+💬 Tham gia Discord
+</a>
 
-      <h1>
+<a
+class="btn shop-btn"
+href="#ranks">
+🛒 Shop Rank
+</a>
 
-        <span class="gradient">
-          NEWBIE CHILL
-        </span>
+</div>
 
-      </h1>
+<div class="server-card">
 
+<div class="server-row">
 
-      <p>
-        Một server Minecraft Survival
-        thân thiện, chill cùng bạn bè
-        và xây dựng hành trình
-        của riêng bạn.
-      </p>
+<div>
 
+<div class="server-label">
+Minecraft Server IP
+</div>
 
-      <div class="actions">
+<div class="ip">
+newbie.asia:25530
+</div>
 
-        <!-- COPY IP -->
+</div>
 
-        <button
-          class="btn primary"
-          onclick="copyIP()"
-        >
-          📋 Copy IP Server
-        </button>
+<button
+class="copy"
+onclick="copyIP()">
+📋 Copy IP
+</button>
 
+</div>
 
-        <!-- DISCORD -->
+<div
+style="
+height:1px;
+background:rgba(255,255,255,.07);
+margin:17px 0
+">
+</div>
 
-        <a
-          class="btn discord-btn"
-          href="https://discord.gg/qPt5bVySJ"
-          target="_blank"
-          rel="noopener"
-        >
-          💬 Tham gia Discord
-        </a>
+<div class="server-row">
 
+<div class="status">
 
-        <!-- SHOP -->
+<span
+id="statusDot"
+class="dot">
+</span>
 
-        <a
-          class="btn shop-btn"
-          href="#ranks"
-        >
-          🛒 Shop Rank
-        </a>
+<span id="statusText">
+Đang kiểm tra...
+</span>
 
-      </div>
+</div>
 
+<div class="status">
 
-      <!-- =========================
-           SERVER CARD
-      ========================= -->
+👥
 
-      <div class="server-card">
+<span id="players">
+--
+</span>
 
-        <div class="server-row">
+người chơi
 
-          <div>
+</div>
 
-            <div class="server-label">
-              Minecraft Server IP
-            </div>
+<div class="status">
 
+🕒
 
-            <div class="ip">
-              newbie.asia:25530
-            </div>
+<span id="latency">
+--
+</span>
 
-          </div>
+</div>
 
+</div>
 
-          <button
-            class="copy"
-            onclick="copyIP()"
-          >
-            📋 Copy IP
-          </button>
+</div>
 
-        </div>
+</section>
 
+<!-- =========================
+     FEATURES
+========================= -->
 
-        <div
-          style="
-            height:1px;
-            background:rgba(255,255,255,.07);
-            margin:17px 0
-          "
-        ></div>
+<section>
 
+<div class="section-head">
 
-        <div class="server-row">
+<h2>
+🌟 NEWBIE CHILL
+</h2>
 
+<p>
+Chill • Survival • Cộng đồng
+</p>
 
-          <!-- STATUS -->
+</div>
 
-          <div class="status">
+<div class="cards">
 
-            <span
-              id="statusDot"
-              class="dot"
-            ></span>
+<div class="card">
 
-            <span id="statusText">
-              Đang kiểm tra...
-            </span>
+<div class="icon">
+🌳
+</div>
 
-          </div>
+<h3>
+Survival
+</h3>
 
+<p>
+Trải nghiệm sinh tồn,
+khám phá và xây dựng
+thế giới của riêng bạn.
+</p>
 
-          <!-- PLAYERS -->
+</div>
 
-          <div class="status">
+<div class="card">
 
-            👥
+<div class="icon">
+🤝
+</div>
 
-            <span id="players">
-              --
-            </span>
+<h3>
+Cộng đồng
+</h3>
 
-            người chơi
+<p>
+Chơi cùng bạn bè,
+lập team và tham gia
+các hoạt động của server.
+</p>
 
-          </div>
+</div>
 
+<div class="card">
 
-          <!-- PING -->
+<div class="icon">
+✨
+</div>
 
-          <div class="status">
+<h3>
+Chill
+</h3>
 
-            🕒
+<p>
+Một không gian chơi
+Minecraft nhẹ nhàng,
+vui vẻ và thân thiện.
+</p>
 
-            <span id="latency">
-              --
-            </span>
+</div>
 
-          </div>
+</div>
 
+</section>
 
-        </div>
+<!-- =========================
+     DISCORD
+========================= -->
 
-      </div>
+<section id="discord">
 
-    </section>
+<div class="discord">
 
+<div>
 
-    <!-- =========================
-         FEATURES
-    ========================= -->
+<h2>
+💬 Discord Community
+</h2>
 
-    <section>
+<p>
+Tham gia Discord để nhận
+thông báo, trò chuyện và
+cập nhật server.
+</p>
 
-      <div class="section-head">
+</div>
 
-        <h2>
-          🌟 NEWBIE CHILL
-        </h2>
+<a
+class="btn primary"
+href="https://discord.gg/qPt5bVySJ"
+target="_blank"
+rel="noopener">
+Tham gia Discord →
+</a>
 
-        <p>
-          Chill • Survival • Cộng đồng
-        </p>
+</div>
 
-      </div>
+</section>
 
+<!-- =========================
+     SHOP RANK
+========================= -->
 
-      <div class="cards">
+<section id="ranks">
 
+<div class="section-head">
 
-        <div class="card">
+<h2>
+👑 Shop Rank
+</h2>
 
-          <div class="icon">
-            🌳
-          </div>
+<p>
+Chọn rank bạn muốn nâng cấp
+</p>
 
-          <h3>
-            Survival
-          </h3>
+</div>
 
-          <p>
-            Trải nghiệm sinh tồn,
-            khám phá và xây dựng
-            thế giới của riêng bạn.
-          </p>
+<div class="ranks">
 
-        </div>
+<!-- CHILL -->
 
+<div class="rank">
 
-        <div class="card">
+<div>
 
-          <div class="icon">
-            🤝
-          </div>
+<h3>
+🌸 Chill
+</h3>
 
-          <h3>
-            Cộng đồng
-          </h3>
+<p class="price">
+15 VNĐ
+</p>
 
-          <p>
-            Chơi cùng bạn bè,
-            lập team và tham gia
-            các hoạt động của server.
-          </p>
+<p class="rank-info">
+🏠 3 Home<br>
+↩️ /back<br>
+✨ Kế thừa toàn bộ quyền Newbie
+</p>
 
-        </div>
+</div>
 
+<button
+class="buy-btn"
+onclick="openShop('Chill',15)">
+🛒 Mua Rank Chill
+</button>
 
-        <div class="card">
+</div>
 
-          <div class="icon">
-            ✨
-          </div>
+<!-- DREAMER -->
 
-          <h3>
-            Chill
-          </h3>
+<div class="rank">
 
-          <p>
-            Một không gian chơi
-            Minecraft nhẹ nhàng,
-            vui vẻ và thân thiện.
-          </p>
+<div>
 
-        </div>
+<h3>
+💜 Dreamer
+</h3>
 
+<p class="price">
+30 VNĐ
+</p>
 
-      </div>
+<p class="rank-info">
+🏠 5 Home<br>
+🎮 /gamemode survival<br>
+👁️ /gamemode spectator
+</p>
 
-    </section>
+</div>
 
+<button
+class="buy-btn"
+onclick="openShop('Dreamer',30)">
+🛒 Mua Rank Dreamer
+</button>
 
-    <!-- =========================
-         DISCORD
-    ========================= -->
+</div>
 
-    <section id="discord">
+<!-- MASTER -->
 
-      <div class="discord">
+<div class="rank">
 
-        <div>
+<div>
 
-          <h2>
-            💬 Discord Community
-          </h2>
+<h3>
+💎 Master
+</h3>
 
-          <p>
-            Tham gia Discord để nhận
-            thông báo, trò chuyện và
-            cập nhật server.
-          </p>
+<p class="price">
+45 VNĐ
+</p>
 
-        </div>
+<p class="rank-info">
+🏠 10 Home<br>
+📍 /tp<br>
+🪽 /fly
+</p>
 
+</div>
 
-        <a
-          class="btn primary"
-          href="https://discord.gg/qPt5bVySJ"
-          target="_blank"
-          rel="noopener"
-        >
-          Tham gia Discord →
-        </a>
+<button
+class="buy-btn"
+onclick="openShop('Master',45)">
+🛒 Mua Rank Master
+</button>
 
-      </div>
+</div>
 
-    </section>
+</div>
 
+<div class="notice">
 
-    <!-- =========================
-         SHOP RANK
-    ========================= -->
+💡 Khi mua rank, hãy nhập chính xác
+<strong>Tên Minecraft</strong> của bạn.
+Nội dung chuyển khoản sẽ có dạng:
+<strong>RANK TênMinecraft</strong>.
 
-    <section id="ranks">
+</div>
 
-      <div class="section-head">
+</section>
 
-        <h2>
-          👑 Shop Rank
-        </h2>
+</main>
 
-        <p>
-          Các rank hỗ trợ Newbie Chill
-        </p>
+<!-- =========================
+     SHOP MODAL
+========================= -->
 
-      </div>
+<div
+id="shopModal"
+class="modal"
+onclick="closeOutside(event)">
 
+<div class="modal-box">
 
-      <div class="ranks">
+<div class="modal-head">
 
+<h2>
+🛒 Mua Rank
+</h2>
 
-        <div class="rank">
+<button
+class="close"
+onclick="closeShop()">
+✕
+</button>
 
-          <div>
+</div>
 
-            <h3>
-              Rank #1
-            </h3>
+<div class="selected-rank">
 
-            <p class="price">
-              Sắp cập nhật
-            </p>
+<div>
+Rank đã chọn:
+</div>
 
-          </div>
+<strong id="selectedRank">
+--
+</strong>
 
+<br>
 
-          <button disabled>
-            Chưa mở bán
-          </button>
+<span class="selected-price">
+💰 <span id="selectedPrice">--</span> VNĐ
+</span>
 
-        </div>
+</div>
 
+<!-- TÊN MINECRAFT -->
 
-        <div class="rank">
+<div class="form-group">
 
-          <div>
+<label for="minecraftName">
+🎮 Tên Minecraft *
+</label>
 
-            <h3>
-              Rank #2
-            </h3>
+<input
+id="minecraftName"
+type="text"
+maxlength="16"
+autocomplete="off"
+placeholder="Nhập tên Minecraft của bạn..."
+oninput="updateTransferContent()">
 
-            <p class="price">
-              Sắp cập nhật
-            </p>
+</div>
 
-          </div>
+<!-- NGÂN HÀNG -->
 
+<div class="payment">
 
-          <button disabled>
-            Chưa mở bán
-          </button>
+<div class="payment-title">
+🏦 Thông tin chuyển khoản
+</div>
 
-        </div>
+<div class="bank-row">
 
+<span class="bank-label">
+Ngân hàng
+</span>
 
-        <div class="rank">
+<span class="bank-value">
+Vietcombank (VCB)
+</span>
 
-          <div>
+</div>
 
-            <h3>
-              Rank #3
-            </h3>
+<div class="bank-row">
 
-            <p class="price">
-              Sắp cập nhật
-            </p>
+<span class="bank-label">
+Chủ tài khoản
+</span>
 
-          </div>
+<span class="bank-value">
+BAN VAN CHUYEN
+</span>
 
+</div>
 
-          <button disabled>
-            Chưa mở bán
-          </button>
+<div class="bank-row">
 
-        </div>
+<span class="bank-label">
+Số tài khoản
+</span>
 
+<span
+class="bank-value"
+id="bankNumber">
+1068595131
+</span>
 
-      </div>
+</div>
 
+<button
+class="copy-bank"
+onclick="copyBankNumber()">
+📋 Copy số tài khoản
+</button>
 
-      <div class="notice">
+</div>
 
-        💡 Shop Rank sẽ được cập nhật
-        khi hệ thống bán rank chính thức
-        được mở.
+<!-- NỘI DUNG CHUYỂN KHOẢN -->
 
-      </div>
+<div class="transfer-content">
 
-    </section>
+<div>
+📝 Nội dung chuyển khoản:
+</div>
 
+<div
+id="transferCode"
+class="transfer-code">
+RANK TênMinecraft
+</div>
 
-  </main>
+<button
+class="copy-content"
+onclick="copyTransferContent()">
+📋 Copy nội dung chuyển khoản
+</button>
 
+</div>
 
-  <!-- =========================
-       FOOTER
-  ========================= -->
+<button
+class="confirm-btn"
+onclick="confirmPurchase()">
+✅ Tôi đã kiểm tra thông tin
+</button>
 
-  <footer>
+<div class="warning">
 
-    ©
-    <span id="year"></span>
+⚠️ Sau khi chuyển khoản, admin sẽ kiểm tra
+và cấp rank cho đúng <strong>Tên Minecraft</strong>.
+Vui lòng nhập tên chính xác.
 
-    <strong>
-      NEWBIE CHILL
-    </strong>
+</div>
 
-    • Minecraft Survival Server
+</div>
 
-    <br>
+</div>
 
-    🌐 newbie.asia:25530
+<!-- =========================
+     FOOTER
+========================= -->
 
-  </footer>
+<footer>
 
+©
+<span id="year"></span>
 
-  <!-- TOAST -->
+<strong>
+NEWBIE CHILL
+</strong>
 
-  <div
-    id="toast"
-    class="toast"
-  >
-    ✅ Đã copy IP!
-  </div>
+• Minecraft Survival Server
 
+<br>
 
-  <!-- =========================
-       JAVASCRIPT
-  ========================= -->
+🌐 newbie.asia:25530
 
-  <script>
+</footer>
 
-    /* =========================
-       SERVER CONFIG
-    ========================= */
+<!-- TOAST -->
 
-    const SERVER_IP =
-      "newbie.asia:25530";
+<div
+id="toast"
+class="toast">
+✅ Đã copy!
+</div>
 
+<!-- =========================
+     JAVASCRIPT
+========================= -->
 
-    const STATUS_API =
-      "https://api.mcsrvstat.us/3/" +
-      encodeURIComponent(
-        SERVER_IP
-      );
+<script>
 
+/* =========================
+   SERVER CONFIG
+========================= */
 
-    /* =========================
-       CHECK SERVER
-    ========================= */
+const SERVER_IP =
+"newbie.asia:25530";
 
-    async function checkServer() {
+const STATUS_API =
+"https://api.mcsrvstat.us/3/" +
+encodeURIComponent(SERVER_IP);
 
-      const dot =
-        document.getElementById(
-          "statusDot"
-        );
 
+/* =========================
+   CHECK SERVER
+========================= */
 
-      const heroDot =
-        document.getElementById(
-          "heroDot"
-        );
+async function checkServer(){
 
+const dot =
+document.getElementById(
+"statusDot"
+);
 
-      const text =
-        document.getElementById(
-          "statusText"
-        );
+const heroDot =
+document.getElementById(
+"heroDot"
+);
 
+const text =
+document.getElementById(
+"statusText"
+);
 
-      const heroStatus =
-        document.getElementById(
-          "heroStatus"
-        );
+const heroStatus =
+document.getElementById(
+"heroStatus"
+);
 
+const players =
+document.getElementById(
+"players"
+);
 
-      const players =
-        document.getElementById(
-          "players"
-        );
+const latency =
+document.getElementById(
+"latency"
+);
 
+try{
 
-      const latency =
-        document.getElementById(
-          "latency"
-        );
+const start =
+performance.now();
 
+const response =
+await fetch(
+STATUS_API,
+{
+cache:"no-store"
+}
+);
 
-      try {
+if(!response.ok){
 
-        const start =
-          performance.now();
+throw new Error(
+"API Error"
+);
 
+}
 
-        const response =
-          await fetch(
-            STATUS_API,
-            {
-              cache: "no-store"
-            }
-          );
+const data =
+await response.json();
 
+const ms =
+Math.round(
+performance.now() -
+start
+);
 
-        if (!response.ok) {
-          throw new Error(
-            "API Error"
-          );
-        }
+/* ONLINE */
 
+if(data.online){
 
-        const data =
-          await response.json();
+dot.classList.add(
+"online"
+);
 
+heroDot.classList.add(
+"online"
+);
 
-        const ms =
-          Math.round(
-            performance.now() -
-            start
-          );
+text.textContent =
+"Server đang Online";
 
+heroStatus.textContent =
+"Server đang Online";
 
-        /* =====================
-           ONLINE
-        ===================== */
+players.textContent =
+`${data.players?.online ?? 0}/${data.players?.max ?? "?"}`;
 
-        if (data.online) {
+latency.textContent =
+ms + " ms";
 
-          dot.classList.add(
-            "online"
-          );
+}
 
+/* OFFLINE */
 
-          heroDot.classList.add(
-            "online"
-          );
+else{
 
+dot.classList.remove(
+"online"
+);
 
-          text.textContent =
-            "Server đang Online";
+heroDot.classList.remove(
+"online"
+);
 
+text.textContent =
+"Server đang Offline";
 
-          heroStatus.textContent =
-            "Server đang Online";
+heroStatus.textContent =
+"Server đang Offline";
 
+players.textContent =
+"0";
 
-          players.textContent =
-            `${data.players?.online ?? 0}/${data.players?.max ?? "?"}`;
+latency.textContent =
+"--";
 
+}
 
-          latency.textContent =
-            ms + " ms";
+}
 
-        }
+catch(error){
 
+dot.classList.remove(
+"online"
+);
 
-        /* =====================
-           OFFLINE
-        ===================== */
+heroDot.classList.remove(
+"online"
+);
 
-        else {
+text.textContent =
+"Không thể kiểm tra";
 
-          dot.classList.remove(
-            "online"
-          );
+heroStatus.textContent =
+"Không thể kiểm tra server";
 
+players.textContent =
+"--";
 
-          heroDot.classList.remove(
-            "online"
-          );
+latency.textContent =
+"--";
 
+}
 
-          text.textContent =
-            "Server đang Offline";
+}
 
 
-          heroStatus.textContent =
-            "Server đang Offline";
+/* =========================
+   COPY IP
+========================= */
 
+async function copyIP(){
 
-          players.textContent =
-            "0";
+try{
 
+await navigator.clipboard.writeText(
+SERVER_IP
+);
 
-          latency.textContent =
-            "--";
+}
 
-        }
+catch(error){
 
+const textarea =
+document.createElement(
+"textarea"
+);
 
-      }
+textarea.value =
+SERVER_IP;
 
+document.body.appendChild(
+textarea
+);
 
-      /* =========================
-         ERROR
-      ========================= */
+textarea.select();
 
-      catch (error) {
+document.execCommand(
+"copy"
+);
 
-        dot.classList.remove(
-          "online"
-        );
+textarea.remove();
 
+}
 
-        heroDot.classList.remove(
-          "online"
-        );
+showToast(
+"✅ Đã copy IP!"
+);
 
+}
 
-        text.textContent =
-          "Không thể kiểm tra";
 
+/* =========================
+   SHOP
+========================= */
 
-        heroStatus.textContent =
-          "Không thể kiểm tra server";
+let currentRank = "";
+let currentPrice = 0;
 
 
-        players.textContent =
-          "--";
+function openShop(rank,price){
 
+currentRank =
+rank;
 
-        latency.textContent =
-          "--";
+currentPrice =
+price;
 
-      }
+document.getElementById(
+"selectedRank"
+).textContent =
+rank;
 
-    }
+document.getElementById(
+"selectedPrice"
+).textContent =
+price;
 
+document.getElementById(
+"minecraftName"
+).value =
+"";
 
-    /* =========================
-       COPY IP
-    ========================= */
+document.getElementById(
+"transferCode"
+).textContent =
+"RANK TênMinecraft";
 
-    async function copyIP() {
+document.getElementById(
+"shopModal"
+).classList.add(
+"show"
+);
 
-      try {
+setTimeout(
+()=>{
+document.getElementById(
+"minecraftName"
+).focus();
+},
+100
+);
 
-        await navigator.clipboard.writeText(
-          SERVER_IP
-        );
+}
 
-      }
 
+function closeShop(){
 
-      catch (error) {
+document.getElementById(
+"shopModal"
+).classList.remove(
+"show"
+);
 
-        const textarea =
-          document.createElement(
-            "textarea"
-          );
+}
 
 
-        textarea.value =
-          SERVER_IP;
+function closeOutside(event){
 
+if(
+event.target.id ===
+"shopModal"
+){
 
-        document.body.appendChild(
-          textarea
-        );
+closeShop();
 
+}
 
-        textarea.select();
+}
 
 
-        document.execCommand(
-          "copy"
-        );
+/* =========================
+   TRANSFER CONTENT
+========================= */
 
+function updateTransferContent(){
 
-        textarea.remove();
+const input =
+document.getElementById(
+"minecraftName"
+);
 
-      }
+const name =
+input.value.trim();
 
+const transfer =
+document.getElementById(
+"transferCode"
+);
 
-      const toast =
-        document.getElementById(
-          "toast"
-        );
+if(name){
 
+transfer.textContent =
+"RANK " + name;
 
-      toast.classList.add(
-        "show"
-      );
+}
 
+else{
 
-      setTimeout(
-        () => {
+transfer.textContent =
+"RANK TênMinecraft";
 
-          toast.classList.remove(
-            "show"
-          );
+}
 
-        },
-        1600
-      );
+}
 
-    }
 
+/* =========================
+   COPY BANK
+========================= */
 
-    /* =========================
-       YEAR
-    ========================= */
+async function copyBankNumber(){
 
-    document.getElementById(
-      "year"
-    ).textContent =
-      new Date().getFullYear();
+try{
 
+await navigator.clipboard.writeText(
+"1068595131"
+);
 
-    /* =========================
-       START
-    ========================= */
+showToast(
+"✅ Đã copy STK!"
+);
 
-    checkServer();
+}
 
+catch(error){
 
-    /* =========================
-       UPDATE EVERY 30 SECONDS
-    ========================= */
+showToast(
+"❌ Không thể copy!"
+);
 
-    setInterval(
-      checkServer,
-      30000
-    );
+}
 
-  </script>
+}
+
+
+/* =========================
+   COPY TRANSFER CONTENT
+========================= */
+
+async function copyTransferContent(){
+
+const name =
+document.getElementById(
+"minecraftName"
+).value.trim();
+
+if(!name){
+
+showToast(
+"⚠️ Hãy nhập Tên Minecraft!"
+);
+
+document.getElementById(
+"minecraftName"
+).focus();
+
+return;
+
+}
+
+const content =
+"RANK " + name;
+
+try{
+
+await navigator.clipboard.writeText(
+content
+);
+
+showToast(
+"✅ Đã copy nội dung!"
+);
+
+}
+
+catch(error){
+
+showToast(
+"❌ Không thể copy!"
+);
+
+}
+
+}
+
+
+/* =========================
+   CONFIRM
+========================= */
+
+function confirmPurchase(){
+
+const name =
+document.getElementById(
+"minecraftName"
+).value.trim();
+
+if(!name){
+
+showToast(
+"⚠️ Hãy nhập Tên Minecraft!"
+);
+
+document.getElementById(
+"minecraftName"
+).focus();
+
+return;
+
+}
+
+const content =
+"RANK " + name;
+
+try{
+
+navigator.clipboard.writeText(
+content
+);
+
+}
+catch(error){}
+
+alert(
+"Thông tin mua rank:\n\n" +
+"Rank: " + currentRank + "\n" +
+"Giá: " + currentPrice + " VNĐ\n" +
+"Tên Minecraft: " + name + "\n\n" +
+"Ngân hàng: Vietcombank (VCB)\n" +
+"STK: 1068595131\n" +
+"Chủ TK: BAN VAN CHUYEN\n" +
+"Nội dung: " + content +
+"\n\n" +
+"Vui lòng chuyển khoản đúng thông tin. " +
+"Admin sẽ kiểm tra và cấp rank sau khi xác nhận."
+);
+
+}
+
+
+/* =========================
+   TOAST
+========================= */
+
+function showToast(message){
+
+const toast =
+document.getElementById(
+"toast"
+);
+
+toast.textContent =
+message;
+
+toast.classList.add(
+"show"
+);
+
+setTimeout(
+()=>{
+
+toast.classList.remove(
+"show"
+);
+
+},
+1800
+);
+
+}
+
+
+/* =========================
+   YEAR
+========================= */
+
+document.getElementById(
+"year"
+).textContent =
+new Date().getFullYear();
+
+
+/* =========================
+   START
+========================= */
+
+checkServer();
+
+
+/* =========================
+   UPDATE EVERY 30 SECONDS
+========================= */
+
+setInterval(
+checkServer,
+30000
+);
+
+</script>
 
 </body>
 </html>
